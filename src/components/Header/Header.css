@@ -1,27 +1,16 @@
 .header {
-  width: 1140px;
-  margin: 18px auto 18px auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-@media screen and (max-width: 1279px) and (min-width: 768px) {
-  .header {
-    width: calc(100% - 60px);
-  }
-}
-
-@media screen and (max-width: 767px) and (min-width: 300px) {
-  .header {
-    width: calc(100% - 28px);
-  }
+  background-color: #5C5C5C;
 }
 
 .logo {
   background-image: url(../../images/logo.svg);
 	width: 38px;
 	height: 38px;
+  margin-left: 70px;
 }
 
 .logo:hover {
@@ -31,4 +20,5 @@
 
 .header__wrapper {
   align-self: center;
+  margin-right: 70px;
 }

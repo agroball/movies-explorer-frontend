@@ -1,22 +1,10 @@
 .promo {
-	max-width: 1200px;
-	background-color: #272727;
+	max-width: 100%;
+	background-color:#5C5C5C;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 20px auto 0 auto;
-}
-
-@media screen and (max-width: 1279px) and (min-width: 768px) {
-	.promo {
-	 width: calc(100% - 40px)
-	}
-}
-  
-@media screen and (max-width: 767px) and (min-width: 300px) {
-	.promo {
-		width: calc(100% - 28px)
-	}
+	margin: 0 auto 0 auto;
 }
 
 .promo__title {
