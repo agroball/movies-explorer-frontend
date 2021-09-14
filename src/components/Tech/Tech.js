@@ -15,9 +15,9 @@ export const Tech = () => {
         <li className="tech__cell">CSS</li>
         <li className="tech__cell">JS</li>
         <li className="tech__cell">React</li>
+        <li className="tech__cell">Git</li>
         <li className="tech__cell">Express.js</li>
         <li className="tech__cell">mongoDB</li>
-        <li className="tech__cell">Git</li>
       </ul>
     </section>
   );

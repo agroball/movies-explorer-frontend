@@ -1,7 +1,7 @@
 .about-me{
   max-width: 1280px;
-  color:#fff;
-  padding-top: 119px;
+  color: #000000;
+  padding-top: 111px;
 	margin: 0 auto;
 }
 
@@ -26,7 +26,7 @@
   grid-template-columns: 600px 270px;
 	grid-template-rows: 1fr 1fr;
 	grid-column-gap: 270px;
-	margin: 66px auto 101px auto;
+	margin: 64px auto 101px auto;
 	max-width: 1140px;
 }
 
@@ -155,7 +155,7 @@
 .about-me__link{
 	margin-right: 20px;
 	text-decoration: none;
-	color: #fff;
+	color:  #000000;
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 17px;

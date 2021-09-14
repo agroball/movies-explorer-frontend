@@ -1,6 +1,6 @@
 import React from 'react';
 import './Portfolio.css';
-import image from '../../images/portfolio__image.svg';
+import image from '../../images/portfolio__link.svg';
 
 export const Portfolio = () => {
 	return (

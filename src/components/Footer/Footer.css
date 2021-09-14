@@ -23,9 +23,9 @@
 	font-size: 13px;
 	line-height: 16px;
 	color: #8B8B8B;
-	margin: 48px 0 0 0;
+	margin: 69px 0 0 0;
 	max-width: 1140px;
-	border-bottom: 1px solid #424242;
+	border-bottom: 1px solid #E8E8E8;
 	padding-bottom: 20px;
 	text-align: center;
 }
@@ -59,7 +59,7 @@
 }
 
 .footer__author {
-	color:#fff;
+	color:#000000;
 	margin:0;
 	font-weight: normal;
 	font-size: 13px;
@@ -113,7 +113,7 @@
 	font-size: 13px;
 	line-height: 16px;
 	text-decoration: none;
-	color: #fff;
+	color: #000000;
 }
 
 .footer__link:hover {

@@ -1,8 +1,8 @@
 .about-project {
   max-width: 1280px;
 	margin-top: 100px;
-	color:#fff;
-	margin: 110px auto 0 auto;
+	color:#000000;
+	margin: 111px auto 0 auto;
 	padding-right: 2%;
 }
 
@@ -23,11 +23,11 @@
 }
 
 .about-project__wrapper {
-	margin: 70px auto 110px auto;
+	margin: 70px 45px 110px auto;
 	display: grid;
 	grid-template-columns: 550px 550px;
-	grid-row-gap: 26px;
-	grid-column-gap: 40px;
+	grid-row-gap: 9px;
+	grid-column-gap: 41px;
 	max-width: 1140px;
 }
 
@@ -122,7 +122,7 @@
 	min-height: 36px;
 	font-size: 14px;
 	line-height: 17px;
-	background-color: #303030;
+	background-color: #F2F2F2;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -2,20 +2,28 @@
 	max-width: 100%;
 	background-color:#5C5C5C;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
+	gap: 191px;
 	margin: 0 auto 0 auto;
+	padding-bottom: 195px;
+	position: relative;
+	padding-left: 69px;
+}
+
+.promo__block {
+	display: flex;
+	flex-direction: column;
+	padding-top: 19px;
 }
 
 .promo__title {
-  max-width: 730px;
-  color: #fff;
-  text-align: center;
+    max-width: 640px;
+    color: #fff;
 	font-weight: normal;
 	font-size: 50px;
 	line-height: 58px;
-	margin: 160px auto 151px auto;
-	letter-spacing: -0.04em;
+	margin-top: 10px;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
@@ -34,3 +42,19 @@
     line-height: 37px;
 	}
 }
+
+.promo__paragraph {
+	max-width: 310px;
+	color: #fff;
+	font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 16px;
+margin: 0;
+}
+
+.promo__logo {
+	width: 310px;
+	height: 304px;
+	padding-top: 93px;
+} 
