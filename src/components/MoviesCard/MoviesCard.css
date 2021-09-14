@@ -1,5 +1,5 @@
 .movies-card {
-	background: #222222;
+	background: #FFFFFF;
 	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 	border-radius: 6px;
   width: 364px;
@@ -25,7 +25,7 @@
 	font-size: 13px;
 	line-height: 16px;
 	margin: 0;
-	color:#fff;
+	color: #000;
 	text-overflow: ellipsis; 
   white-space: nowrap; 
   overflow: hidden;

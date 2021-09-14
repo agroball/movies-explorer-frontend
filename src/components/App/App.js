@@ -18,7 +18,7 @@ export const App = () => {
   const [isSavedMovies, setIsSavedMovies] = React.useState(true);
   const [isHidden, setIsHidden] = React.useState(true);
   const [isHiddenFooter, setIsHiddenFooter] = React.useState(true);
-
+  
   function handleLink(boolean) {
     setIsAuth(boolean);
   }
@@ -26,7 +26,7 @@ export const App = () => {
 
   return (
     <div className="app">
-      {isHidden && <Header isAuth={isAuth} />}
+      {isHidden && <Header isAuth={isAuth}/>}
       <Switch>
         <Route exact path="/">
           <Main setAuth={handleLink} />

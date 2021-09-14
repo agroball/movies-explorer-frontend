@@ -51,12 +51,12 @@
   width: 320px;
   height: 36px;
   margin: 50px auto 90px auto;
-  background: #2F2F2F;
+  background: #fff;
   border-radius: 6px;
-  color: #fff;
+  color: #000;
   cursor: pointer;
   outline: none;
-  border: none;
+  border: 1px solid #8B8B8B;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;

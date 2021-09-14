@@ -7,6 +7,10 @@
   padding-top: 18px;
 }
 
+.header_active {
+  background-color: #FFFFFF;
+}
+
 .logo {
   background-image: url(../../images/logo.svg);
 	width: 38px;
