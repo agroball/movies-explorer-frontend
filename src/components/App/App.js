@@ -18,15 +18,28 @@ export const App = () => {
   const [isSavedMovies, setIsSavedMovies] = React.useState(true);
   const [isHidden, setIsHidden] = React.useState(true);
   const [isHiddenFooter, setIsHiddenFooter] = React.useState(true);
-  
+
   function handleLink(boolean) {
     setIsAuth(boolean);
   }
 
+  const [moviesBackground, setMoviesBackground] = React.useState('');
+  const getMoviesUrl = window.location.pathname;
+
+  React.useEffect(() => {
+    if (getMoviesUrl ==="/movies") {
+      setMoviesBackground('header_active');
+    } else if (getMoviesUrl === "/saved-movies") {
+      setMoviesBackground('header_active');
+    } else {
+      setMoviesBackground('');
+    }
+  }, [getMoviesUrl]);
+
 
   return (
     <div className="app">
-      {isHidden && <Header isAuth={isAuth}/>}
+      {isHidden && <Header isAuth={isAuth} moviesBackground={moviesBackground}/>}
       <Switch>
         <Route exact path="/">
           <Main setAuth={handleLink} />
