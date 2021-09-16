@@ -29,9 +29,9 @@
 .checkbox__switch:before {
   position: absolute;
   content: "";
-  height: 8px;
-  width: 8px;
-  left: 2px;
+  height: 6px;
+  width: 6px;
+  left: 6px;
   bottom: 6px;
   background-color:  #FFFFFF;
 	border: 1px solid #FFFFFF;

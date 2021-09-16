@@ -8,11 +8,11 @@ export const SearchForm = () => {
 			<form className="search-form__form">
 				<div className="search-form__container">
 					<input className="search-form__input" type="search" placeholder="Фильм" required></input>
-					<button className="search-form__button"></button>
+					<button className="search-form__button">Поиск</button>
 				</div>
 				<div className="search-form__wrapper">
+          <FilterCheckbox />
 					<label className="search-form__title">Короткометражки</label>
-					<FilterCheckbox />
 				</div>
 			</form>
 		</section>

@@ -4,6 +4,7 @@ import { SearchForm } from '../SearchForm/SearchForm';
 import img1 from "../../images/card1.png";
 import img2 from "../../images/card2.png";
 import img3 from "../../images/card3.png";
+import './SavedMovies.css';
 
 export const SavedMovies = (props) => {
 
@@ -29,6 +30,7 @@ export const SavedMovies = (props) => {
 						isSavedMovies={props.isSavedMovies} />
 				</div>
 			</div>
+      <div className="saved__movies_space"></div>
 		</>
 	);
 }

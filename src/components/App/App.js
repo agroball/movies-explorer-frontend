@@ -18,20 +18,15 @@ export const App = () => {
   const [isSavedMovies, setIsSavedMovies] = React.useState(true);
   const [isHidden, setIsHidden] = React.useState(true);
   const [isHiddenFooter, setIsHiddenFooter] = React.useState(true);
+  const [moviesBackground, setMoviesBackground] = React.useState('header_active');
+  const getMoviesUrl = window.location.pathname;
 
   function handleLink(boolean) {
     setIsAuth(boolean);
   }
 
-  const [moviesBackground, setMoviesBackground] = React.useState('');
-  const getMoviesUrl = window.location.pathname;
-
   React.useEffect(() => {
-    if (getMoviesUrl ==="/movies") {
-      setMoviesBackground('header_active');
-    } else if (getMoviesUrl === "/saved-movies") {
-      setMoviesBackground('header_active');
-    } else {
+    if (getMoviesUrl ==="/") {
       setMoviesBackground('');
     }
   }, [getMoviesUrl]);
