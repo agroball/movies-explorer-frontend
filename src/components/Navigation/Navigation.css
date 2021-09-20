@@ -117,7 +117,7 @@
 
 .popup__container {
 	width: 520px;
-	background-color:#202020;
+	background-color:#FFFFFF;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -138,7 +138,7 @@
 }
 
 .popup__link {
-	color: #fff;
+	color: #000000;
 	text-decoration: none;
 	font-weight: 500;
 	font-size: 18px;
@@ -154,7 +154,7 @@
 
 .popup__link_active {
 	padding-bottom: 4px;
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid #000000;
 }
 
 .popup__link:last-of-type {
@@ -186,7 +186,7 @@
 	height: 30px;
 	background-size: 14px 14px;
 	background-repeat: no-repeat;
-	background-color: #313131;
+	background-color: #F9F9F9;
 	background-position: center;
 	margin-left: 17px;
 }
