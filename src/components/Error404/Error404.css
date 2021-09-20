@@ -20,6 +20,12 @@
 	margin: 246px 0 0 0;
 }
 
+@media screen and (max-width: 1279px) and (min-width: 300px) {
+  .error__title {
+    margin-top: 408px;
+  }
+}
+
 @media screen and (max-width: 767px) and (min-width: 300px) {
 	.error__title {
 		font-size: 80px;

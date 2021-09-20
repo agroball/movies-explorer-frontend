@@ -30,7 +30,7 @@ export const Profile = (props) => {
 						type="email"
 						minLength="2"
 						maxLength="30" />
-					<label className="profile__label">Email</label>
+					<label className="profile__label">E-mail</label>
 				</div>
 				<button className="profile__button">Редактировать</button>
 			</form>
