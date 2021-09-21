@@ -13,7 +13,7 @@
 		padding: 0;
 	}
 }
-  
+
   @media screen and (max-width: 767px) and (min-width: 300px) {
 	.about-project {
 		width: calc(100% - 32px);
@@ -69,7 +69,7 @@
 @media screen and (max-width: 767px) and (min-width: 300px) {
 	.about-project__title:last-of-type {
 		grid-row: 3/4;
-		margin-top: 56px;
+		margin-top: 55px;
 	}
 }
 
@@ -82,8 +82,8 @@
 
 @media screen and (max-width: 768px) {
 	.about-project__subtitle {
-		font-size: 12px;
-		line-height: 18px;
+    font-size: 11px;
+    line-height: 16px;
 	}
 }
 

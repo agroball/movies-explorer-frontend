@@ -44,13 +44,13 @@
 		grid-template-rows: 0.5fr;
 		grid-template-columns: 0.5fr;
 		grid-column-gap: 49px;
-		grid-template-areas: 
+		grid-template-areas:
 		"a"
 		"b"
 		"c"
 		"d"
 		"e";
-		margin-bottom: 67px;
+		margin-bottom: 60px;
 		margin-top: 60px;
 		justify-content: center;
 	}

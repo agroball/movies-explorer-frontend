@@ -5,6 +5,13 @@
 	left: 69px;
 }
 
+@media screen and (max-width: 767px) and (min-width: 300px) {
+  .navtab {
+    bottom: 12px;
+    left: 95px;
+  }
+}
+
 .navtab__element {
 	display: flex;
   justify-content: center;
@@ -39,8 +46,6 @@
 	.navtab__element {
 		margin-bottom: 17px;
 		margin-right: 6px;
-		width: 82px;
-    height: 26px;
 		font-size: 10px;
     line-height: 16px;
 	}

@@ -14,12 +14,12 @@
 		padding-right: 6.5%;
 	}
 }
-  
+
 @media screen and (max-width: 767px) and (min-width: 300px) {
 	.tech {
-		padding-top: 50px;
-		padding-left: 6.4%;
-		padding-right: 6.4%;
+		padding-top: 48px;
+		padding-left: 5.4%;
+		padding-right: 5.4%;
 		background-color: #F5F5F5;
 	}
 }
@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 450px) {
 	.tech__title {
-		margin: 60px auto 24px auto;
+		margin: 58px auto 24px auto;
 		font-size: 48px;
 		font-size: 30px;
     line-height: 36px;
@@ -91,12 +91,12 @@
 	.tech__list {
 		display: grid;
 		grid-template-columns: 0.3fr 0.3fr;
-		grid-template-areas: 
+		grid-template-areas:
 		"a b"
 		"a a "
 		"a a "
 		"a a ";
-		grid-row-gap: 10px;		
+		grid-row-gap: 10px;
 		grid-column-gap: 10px;
 		padding-bottom: 70px;
 	}

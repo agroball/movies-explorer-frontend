@@ -7,6 +7,13 @@
   padding-top: 18px;
 }
 
+@media screen and (max-width: 767px) and (min-width: 300px) {
+  .header {
+    justify-content: space-around;
+    column-gap: 94px;
+  }
+}
+
 .header_active {
   background-color: #FFFFFF;
   margin-left: 14px;
@@ -22,8 +29,10 @@
 
 @media screen and (max-width: 767px) and (min-width: 300px) {
   .header_active {
-    gap: 199px;
+    gap: 188px;
     padding-top: 15px;
+    margin-left: 0;
+    justify-content: space-around;
   }
 }
 
@@ -43,8 +52,9 @@
   margin-right: 49px;
 }
 
-@media screen and (max-width: 1279px) and (min-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 300px) {
   .header__wrapper {
 margin-right: 0;
   }
 }
+

@@ -2,7 +2,7 @@
 	max-width: 1140px;
   color: #000000;
 	border-bottom: 1px solid #DADADA;
-	padding-bottom: 23px;  
+	padding-bottom: 23px;
 	margin: 0;
 	margin-left: 70px;
 	font-weight: normal;
@@ -23,6 +23,7 @@
 		max-width: 1040px;
 		font-size: 18px;
     line-height: 22px;
-		padding-bottom: 28px; 
+		padding-bottom: 29px;
+    margin-left: 2px;
 	}
 }
