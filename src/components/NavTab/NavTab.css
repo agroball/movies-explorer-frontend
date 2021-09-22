@@ -36,7 +36,13 @@
 	transition-duration: 1s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) and (min-width: 768px) {
+ .navtab__element {
+ margin-left: 248px;
+ }
+}
+
+@media screen and (max-width: 767px) {
 	.navtab__element {
 		margin-bottom: 30px;
 	}
@@ -51,6 +57,3 @@
 	}
 }
 
-.navtab__element:last-child {
-	margin-right: 0;
-}

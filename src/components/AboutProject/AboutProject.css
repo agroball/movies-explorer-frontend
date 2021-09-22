@@ -59,6 +59,12 @@
 	margin-bottom: 16px;
 }
 
+@media screen and (max-width: 1280px) and (min-width: 768px) {
+  .about-project__title {
+    margin-bottom: 0;
+  }
+}
+
 @media screen and (max-width: 767px) and (min-width: 300px) {
 	.about-project__title {
 		font-size: 18px;
@@ -80,7 +86,14 @@
 	line-height: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) and (min-width: 768px) {
+  .about-project__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
 	.about-project__subtitle {
     font-size: 11px;
     line-height: 16px;

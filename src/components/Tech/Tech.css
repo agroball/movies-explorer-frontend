@@ -33,7 +33,13 @@
   margin:90px auto 26px auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  .tech__title {
+    margin:78px auto 22px auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
 	.tech__title {
 		margin: 80px auto 23px auto;
 	}
@@ -58,7 +64,15 @@
 	letter-spacing: -0.04em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  .tech__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 83px;
+  }
+}
+
+@media screen and (max-width: 767px) {
 	.tech__subtitle {
 		font-size: 12px;
     line-height: 18px;
@@ -128,6 +142,7 @@
 		grid-area: a, b;
 		align-self: center;
 		justify-self: center;
+    margin-right: 8px;
 	}
 }
 

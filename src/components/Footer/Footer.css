@@ -8,13 +8,14 @@
 @media screen and (max-width: 1279px) and (min-width: 768px) {
 	.footer {
 	  max-width: calc(100% - 60px);
+    margin-left: 37px;
 	}
 }
 
 @media screen and (max-width: 767px) and (min-width: 300px) {
 	.footer {
 	  max-width: calc(100% - 20px);
-		
+
 	}
 }
 
@@ -33,7 +34,7 @@
 @media screen and (max-width: 768px) {
 	.footer__title {
 		max-width: 708px;
-		margin-top: 25px;
+		margin-top: 93px;
 	}
 }
 
