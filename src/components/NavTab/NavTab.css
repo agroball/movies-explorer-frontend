@@ -36,7 +36,7 @@
 	transition-duration: 1s;
 }
 
-@media screen and (max-width: 1280px) and (min-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
  .navtab__element {
  margin-left: 248px;
  }
@@ -54,6 +54,8 @@
 		margin-right: 6px;
 		font-size: 10px;
     line-height: 16px;
+    font-style: normal;
+    font-weight: 500;
 	}
 }
 

@@ -15,7 +15,6 @@
 }
 
 .navigation__link {
-	color: #FFFFFF;
 	text-decoration: none;
 	font-weight: 500;
 	font-size: 12px;
@@ -128,7 +127,7 @@
 .popup__wrapper {
 	display: flex;
 	flex-direction: column;
-	margin-top: 159px;
+	margin-top: 146px;
 }
 
 .popup__wrapper_aligning {
@@ -158,21 +157,22 @@
 }
 
 .popup__link:last-of-type {
+  margin-top: -6px;
 	margin-bottom: 0;
 }
 
 .popup__button {
 	background-image: url(../../images/button__close.svg);
-	width: 22px;
-	height: 22px;
+	width: 25px;
+	height: 30px;
 	cursor: pointer;
 	outline: none;
 	border: none;
 	background-color: transparent;
 	background-size: cover;
   position: absolute;
-	top: 23px;
-	right: 23px;
+	top: 14px;
+	right: 19px;
 }
 
 .popup__button:hover {

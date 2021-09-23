@@ -1,6 +1,5 @@
 .about-project {
   max-width: 1280px;
-	margin-top: 100px;
 	color:#000000;
 	margin: 111px auto 0 auto;
 	padding-right: 2%;
@@ -26,7 +25,7 @@
 	margin: 70px 45px 110px auto;
 	display: grid;
 	grid-template-columns: 550px 550px;
-	grid-row-gap: 9px;
+	grid-row-gap: 26px;
 	grid-column-gap: 41px;
 	max-width: 1140px;
 }
@@ -56,10 +55,9 @@
 	font-size: 20px;
 	line-height: 24px;
 	letter-spacing: -0.04em;
-	margin-bottom: 16px;
 }
 
-@media screen and (max-width: 1280px) and (min-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
   .about-project__title {
     margin-bottom: 0;
   }
@@ -86,7 +84,7 @@
 	line-height: 20px;
 }
 
-@media screen and (max-width: 1280px) and (min-width: 768px) {
+@media screen and (max-width: 1279px) and (min-width: 768px) {
   .about-project__subtitle {
     font-size: 12px;
     line-height: 18px;
@@ -97,6 +95,7 @@
 	.about-project__subtitle {
     font-size: 11px;
     line-height: 16px;
+    margin-top: 16px;
 	}
 }
 

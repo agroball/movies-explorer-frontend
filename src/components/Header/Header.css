@@ -1,16 +1,19 @@
 .header {
-  width: 100%;
+  max-width: 100%;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   background-color: #5C5C5C;
   padding-top: 18px;
+  padding-left: 70px;
+  margin: 0;
+  column-gap: 44px;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
   .header {
     justify-content: space-around;
     column-gap: 428px;
+    padding-left: 0;
   }
 }
 
@@ -18,17 +21,19 @@
   .header {
     justify-content: space-around;
     column-gap: 94px;
+    padding-left: 0;
   }
 }
 
 .header_active {
   background-color: #FFFFFF;
-  margin-left: 14px;
+  column-gap: 44px;
+  margin: 0 14px 0 0;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
   .header_active {
-    gap: 600px;
+    gap: 558px;
     padding-top: 15px;
     margin-left: 0;
   }
