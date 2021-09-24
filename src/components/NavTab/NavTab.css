@@ -1,11 +1,19 @@
 .navtab {
 	display: flex;
+  flex-direction: row;
 	position: absolute;
-	bottom: 41px;
-	left: 69px;
+  bottom: 7%;
+  left:5.5%;
 }
 
-@media screen and (max-width: 767px) and (min-width: 300px) {
+@media screen and (max-width: 1279px) and (min-width: 341px) {
+  .navtab {
+    bottom: 5%;
+    left:41.5%;
+  }
+}
+
+@media screen and (max-width: 340px) and (min-width: 300px) {
   .navtab {
     bottom: 12px;
     left: 95px;
@@ -34,12 +42,6 @@
 .navtab__element:hover {
 	opacity: 0.6;
 	transition-duration: 1s;
-}
-
-@media screen and (max-width: 1279px) and (min-width: 768px) {
- .navtab__element {
- margin-left: 248px;
- }
 }
 
 @media screen and (max-width: 767px) {

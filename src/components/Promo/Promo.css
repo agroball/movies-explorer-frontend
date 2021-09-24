@@ -4,11 +4,11 @@
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
+  justify-content: center;
 	gap: 189px;
 	margin: 0 auto 0 auto;
 	padding-bottom: 195px;
 	position: relative;
-  padding-right: 70px;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
@@ -44,6 +44,7 @@
 @media screen and (max-width: 767px) and (min-width: 300px) {
   .promo__block {
     padding-top: 34px;
+    align-items: center;
   }
 }
 
@@ -63,7 +64,6 @@
 		font-size: 40px;
 		line-height: 52px;
     text-align: center;
-    padding-left: 70px;
 	}
 }
 
@@ -74,8 +74,6 @@
     line-height: 38px;
     text-align: center;
     letter-spacing: -0.04em;
-    padding-left: 70px;
-
 	}
 }
 
@@ -96,7 +94,6 @@
     max-width: 260px;
    text-align: center;
     margin-bottom: 8px;
-    padding-left: 70px;
   }
 }
 
@@ -104,7 +101,6 @@
   .promo__paragraph {
     max-width: 260px;
     text-align: center;
-    padding-left: 90px;
     padding-top: 4px;
   }
 }
@@ -118,7 +114,6 @@
 @media screen and (max-width: 1279px) and (min-width: 768px) {
   .promo__logo {
     padding-top: 158px;
-    padding-left: 70px;
   }
 }
 
@@ -127,6 +122,5 @@
    width: 210px;
    height: 206px;
    padding-top: 88px;
-   padding-left: 70px;
  }
 }
