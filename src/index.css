@@ -1,0 +1,8 @@
+@import './vendor/normalize.css';
+@import './vendor/fonts/Inter Web/inter.css';
+.page{
+    
+  
+    background-color: #FFFFFF;
+    font-family: 'Inter', Arial, sans-serif, Helvetica;
+}

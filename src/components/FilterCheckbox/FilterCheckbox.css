@@ -1,0 +1,44 @@
+.checkbox {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.checkbox__input {
+  display: none;
+}
+
+.checkbox__switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2BE080;
+  transition: .4s;
+	border-radius: 20px;
+}
+
+.checkbox__switch:hover {
+	opacity: 0.6;
+	transition-duration: 1s;
+}
+
+.checkbox__switch:before {
+  position: absolute;
+  content: "";
+  height: 6px;
+  width: 6px;
+  left: 6px;
+  bottom: 6px;
+  background-color:  #FFFFFF;
+	border: 1px solid #FFFFFF;
+  transition: .4s;
+	border-radius: 50%;
+}
+
+.checkbox__input:checked + .checkbox__switch:before {
+  transform: translateX(16px);
+}

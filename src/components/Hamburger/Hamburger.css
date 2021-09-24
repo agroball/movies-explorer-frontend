@@ -1,0 +1,23 @@
+.header__hamburger {
+  background-image: url(../../images/burger.svg);
+	background-color: transparent;
+  width: 40px;
+  height: 43px;
+	background-repeat: no-repeat;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.header__hamburger:hover {
+	opacity: 0.6;
+	transition-duration: 1s;
+}
+
+@media screen and (max-width: 5000px) and (min-width: 1279px) {
+	.header__hamburger_with_signin {
+    display: none;
+	}
+}
+
+

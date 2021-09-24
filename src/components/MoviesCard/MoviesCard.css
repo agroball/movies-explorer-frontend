@@ -1,0 +1,111 @@
+.movies-card {
+	background: #FFFFFF;
+  width: 270px;
+  height: 230px;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+	.movies-card {
+    height: 269px;
+		width: 339px;
+	}
+}
+
+@media screen and (max-width: 767px) and (min-width: 300px) {
+	.movies-card {
+    height: 237px;
+		width: 300px;
+	}
+}
+
+.movies-card__title {
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 16px;
+	margin: 4px 0 0 0;
+	color: #000;
+	text-overflow: ellipsis;
+  width: 226px;
+  height: 32px;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 300px) {
+  .movies-card__title {
+    margin-left: 1px;
+	}
+}
+
+.movies-card__time {
+	font-weight: normal;
+	font-size: 11px;
+	line-height: 13px;
+	color: #8B8B8B;
+	margin: 7px 0 10px 0;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  .movies-card__time {
+    margin: 7px 0 0 0;
+	}
+}
+
+.movies-card__image {
+	width: 100%
+}
+
+.movies-card__wrapper {
+	width: 270px;
+	margin: 7px auto 0 auto;
+	display: flex;
+	justify-content: space-between;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  .movies-card__wrapper {
+    margin: 8px 0 0 0;
+    width: 339px;
+	}
+}
+
+@media screen and (max-width: 767px) and (min-width: 300px) {
+  .movies-card__wrapper {
+		width: 100%;
+    margin: 8px auto 0 auto;
+	}
+}
+
+.movies-card__button {
+	background-image: url(../../images/like__deactive.svg);
+	width: 24px;
+	height: 24px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #F9F9F9;
+  border-radius: 36px;
+	border: none;
+	cursor: pointer;
+}
+
+.movies-card__button:hover {
+	opacity: 0.6;
+	transition-duration: 1s;
+}
+
+.movies-card__button_delete_card {
+	background-image: url(../../images/button__delete.svg);
+	align-self: center;
+  transform: rotate(45deg);
+  transition: transform 1s;
+}
+
+.movies-card__button_delete_card:hover {
+  transform: rotate(90deg);
+}
+
+
+.movies-card__button_like_active {
+	background-image: url(../../images/like__active.svg);
+
+}
