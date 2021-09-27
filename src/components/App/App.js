@@ -15,7 +15,7 @@ import * as mainApi from "../../utils/MainApi";
 import * as moviesApi from "../../utils/MovieApi";
 import * as search from "../../utils/search";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
-import { CurrentUserContext } from "../../contexts/currentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 
 function  App(props) {

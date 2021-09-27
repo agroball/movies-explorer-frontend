@@ -71,6 +71,15 @@ margin-top: 117px;
 	text-align: right;
 }
 
+.profile__input_email {
+  border: none;
+}
+
+.profile__input_error {
+  color: #ee3465;
+  border-bottom: 2px solid #ee3465;
+}
+
 @media screen and (max-width: 767px) and (min-width: 300px) {
   .profile__input {
     max-width: 100%;
