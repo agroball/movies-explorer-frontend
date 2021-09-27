@@ -8,8 +8,8 @@ export const Navigation = (props) => {
 		<>
 			{props.isAuth && <nav className="navigation">
 				<div className="navigation__wrapper navigation__wrapper_hidden">
-					<Link to="/movies" className="navigation__link">Фильмы</Link>
-					<Link to="/saved-movies" className="navigation__link navigation__link_active">Сохранённые фильмы</Link>
+					<NavLink to="/movies" className="navigation__link">Фильмы</NavLink>
+					<NavLink to="/saved-movies" className="navigation__link navigation__link_active">Сохранённые фильмы</NavLink>
 				</div>
 				<div className="navigation__wrapper navigation__wrapper_hidden">
 					<Link to="/profile" className="navigation__link navigation__link_with_signin">Аккаунт</Link>

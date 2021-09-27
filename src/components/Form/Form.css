@@ -60,6 +60,11 @@
 	padding: 0;
 }
 
+.form__input_error {
+  color: #ee3465;
+  border-bottom: 2px solid #ee3465;
+}
+
 .form__label{
 	position: absolute;
 	left:0;
