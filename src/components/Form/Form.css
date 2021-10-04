@@ -78,9 +78,9 @@
 .form__wrapper{
 	width: 100%;
 	position: relative;
-	margin-top: 24px;
+	margin-top: 41px;
 	border-bottom: 2px solid #E8E8E8;
-	padding: 0 0 10px 0;
+	padding: 0 0 15px 0;
 }
 
 @media screen and (max-width: 767px) and (min-width: 300px) {

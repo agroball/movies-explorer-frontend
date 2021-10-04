@@ -1,4 +1,4 @@
-export const BASE_URL = '#';
+export const BASE_URL = 'https://api.agroball.diplom.nomoredomains.monster';
 
 export const register = (name, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
