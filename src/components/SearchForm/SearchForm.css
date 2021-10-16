@@ -50,7 +50,7 @@
 	background-color: #FFFFFF;
 	border: 1.5px solid rgba(170, 170, 170, 0.2);
 	outline: none;
-	color: #fff;
+	color: #000000;
 }
 
 .search-form__input:focus{
@@ -88,7 +88,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  color: #FFFFFF;
+  color: #000000;
 }
 
 .search-form__button:hover {

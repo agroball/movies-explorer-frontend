@@ -26,7 +26,7 @@ export const SearchForm = (props) => {
       <form className="search-form__form" onSubmit={handleSearch}>
         <div className="search-form__container">
           <input onChange={handleKeyValue} value={keyValue} className="search-form__input" type="search" placeholder="Фильм" disabled={props.isFormDisabled} required></input>
-          <button className={`search-form__button ${props.isFormDisabled && "search-form__button_disabled"}`} disabled={props.isFormDisabled} type="submit"></button>
+          <button className={`search-form__button ${props.isFormDisabled && "search-form__button_disabled"}`} disabled={props.isFormDisabled} type="submit">Поиск</button>
         </div>
         <div className="search-form__wrapper">
           <label className="search-form__title">Короткометражки</label>
