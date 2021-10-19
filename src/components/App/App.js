@@ -21,7 +21,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function  App(props) {
 
   const [isAuth, setIsAuth] = React.useState(false);
-  const [isSavedMovies, setIsSavedMovies] = React.useState(true);
+  // const [isSavedMovies, setIsSavedMovies] = React.useState(true);
   const [isHidden, setIsHidden] = React.useState(true);
   const [isHiddenFooter, setIsHiddenFooter] = React.useState(true);
   const [moviesBackground, setMoviesBackground] = React.useState('header_active');

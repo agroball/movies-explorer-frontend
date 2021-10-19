@@ -5,7 +5,7 @@ import './MoviesCardList.css';
 import {
   MAX_SIZE, MIDDLE_SIZE_START, MOVIES_COUNT_MAX, MOVIES_COUNT_MIDDLE,
   MOVIES_COUNT_LOW, MOVIES_COUNT_MAX_STEP, MOVIES_COUNT_MIDDLE_STEP
-} from "../../utils/constants";
+} from "../../utils/constans";
 
 export const MoviesCardList = (props) => {
 
