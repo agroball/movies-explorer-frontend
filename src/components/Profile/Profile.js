@@ -28,10 +28,11 @@ export const Profile = (props) => {
     });
   }
 
-  React.useEffect(()=> {
-    if(formRef.current && formRef.current.checkValidity() && name !== currentUser.name && email !== currentUser.email) {
+  React.useEffect(() => {
+    if(formRef.current && formRef.current.checkValidity()
+      && name !== currentUser.name && email !== currentUser.email) {
       setIsButtonDisabled(false);
-    } else {
+    }else{
       setIsButtonDisabled(true);
     }
   })

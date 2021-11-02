@@ -273,7 +273,7 @@ function  App(props) {
           <Main setAuth={handleLink} />
         </Route>
         <ProtectedRoute
-          path="/movies"
+          path='/movies'
           component={Movies}
           isAuth={isAuth}
           onGetFilms={findFilms}
