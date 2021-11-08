@@ -40,8 +40,8 @@ export const MoviesCard = (props) => {
       </a>
       <div className="movies-card__wrapper">
         <h2 className="movies-card__title">{nameRU}</h2>
-        {buttonState && <button onClick={handleButton} className={movieSavedButtonClassName}></button>}
-        {!buttonState && <button onClick={handleButton} className="movies-card__button movies-card__button_delete_card"></button>}
+        {buttonState && <button onClick={handleButton} className={movieSavedButtonClassName}/>}
+        {!buttonState && <button onClick={handleButton} className="movies-card__button movies-card__button_delete_card"/>}
       </div>
       <p className="movies-card__time">{returnDuration()}</p>
     </article>

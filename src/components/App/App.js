@@ -104,7 +104,7 @@ function  App(props) {
   function handleSignOut() {
     mainApi.signOut()
       .then((res) => {
-        props.history.push('/signin');
+        props.history.push('/');
         setIsAuth(false);
         setMovies([])
         setSavedMovies([])
