@@ -45,7 +45,7 @@ export const Profile = (props) => {
 
 	return (
 		<div className="profile">
-			<h1 className="profile__title">Привет, {props.name}!</h1>
+			<h1 className="profile__title"> {`Привет, ${currentUser.name}!`}</h1>
 			<form ref={formRef} className="profile__form" onSubmit={handleSubmit}>
 				<div className="profile__wrapper">
 					<Input
