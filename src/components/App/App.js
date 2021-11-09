@@ -58,7 +58,7 @@ function  App(props) {
     setIsFormDisabled(true)
     mainApi.register(name, email, password)
       .then((res) => {
-        props.history.push('/signin');
+        props.history.push('/movies');
         setIsFormDisabled(false)
       })
       .catch((err) => {

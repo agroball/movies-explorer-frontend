@@ -12,6 +12,8 @@ export const MoviesCard = (props) => {
   const isLiked = savedMovies.some(item => item.movieId === id && item.owner === currentUser.id);
   const movieSavedButtonClassName = (`movies-card__button ${isLiked && 'movies-card__button_like_active'}`);
   const buttonState = props.component === 'movies';
+
+
   function handleButton() {
     props.onHandleMovieButton(props.movie)
   }

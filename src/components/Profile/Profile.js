@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input } from '../Input/Input';
-import { Link } from 'react-router-dom';
 import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -46,7 +45,7 @@ export const Profile = (props) => {
 
 	return (
 		<div className="profile">
-			<h1 className="profile__title">Привет, {currentUser.name}!</h1>
+			<h1 className="profile__title">Привет, {props.name}!</h1>
 			<form ref={formRef} className="profile__form" onSubmit={handleSubmit}>
 				<div className="profile__wrapper">
 					<Input
@@ -56,7 +55,7 @@ export const Profile = (props) => {
 						minLength="2"
 						maxLength="30"
             placeholder={currentUser.name}
-            value={name}
+            value={props.name}
             onChange={handleName}
             isFormDisabled={props.isFormDisabled}
           />
