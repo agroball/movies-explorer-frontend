@@ -140,9 +140,9 @@ export const movieDelete = (movie) => {
     method: 'DELETE',
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json',
-    }
-
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
   })
     .then(res => {
       if (!res.ok) {
