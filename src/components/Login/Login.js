@@ -17,7 +17,7 @@ export const Login = (props) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onLogin(email, password);
+    props.onLogin({ email: email, password: password });
 
   }
 

@@ -45,7 +45,7 @@ export const Profile = (props) => {
 
 	return (
 		<div className="profile">
-			<h1 className="profile__title"> {`Привет, ${currentUser.name}!`}</h1>
+			<h1 className="profile__title">Привет, {props.currentUser.name}!</h1>
 			<form ref={formRef} className="profile__form" onSubmit={handleSubmit}>
 				<div className="profile__wrapper">
 					<Input
@@ -54,8 +54,8 @@ export const Profile = (props) => {
 						type="text"
 						minLength="2"
 						maxLength="30"
-            placeholder={currentUser.name}
-            value={props.name}
+            placeholder={props.currentUser.name}
+            value={props.currentUser.name}
             onChange={handleName}
             isFormDisabled={props.isFormDisabled}
           />
@@ -68,8 +68,8 @@ export const Profile = (props) => {
 						type="email"
 						minLength="2"
 						maxLength="30"
-            placeholder={currentUser.email}
-            value={email}
+            placeholder={props.currentUser.email}
+            value={props.currentUser.email}
             onChange={handleEmail}
             isFormDisabled={props.isFormDisabled}
           />
