@@ -98,7 +98,6 @@ patchPersonInfo(name, email) {
         });
     }
 
-
     addCard(data) {
         return fetch(`${this._url}/movies`, {
             method: 'POST',

@@ -16,7 +16,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
-
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState({ email: '', name: '', id: '' });
   const [headerMenu, setHeaderMenu] = useState(false);
@@ -258,14 +257,12 @@ function arrIterating(array, str){
   }
 }
 
-
 function Search(movie, request){
   const Arr = movie.filter((item) => {
     return (arrIterating(request, item.nameRU) || arrIterating(request, item.nameEN) || arrIterating(request, item.director) || arrIterating(request, item.country))
   })
   return Arr;
 }
-
 
 function moviesSearch(request){
   if (request.movie !== '' && request.movie !== undefined){

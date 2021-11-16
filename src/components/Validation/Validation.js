@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 
 function errorInputText (name, value){
-
   let errors = {};
 
   if ((name === 'password' ||  name === 'name' || name === 'email') && !value) {
