@@ -1,27 +1,17 @@
-import React from 'react';
 import './Portfolio.css';
-import image from '../../images/portfolio__link.svg';
+import cursor from '../../images/cursor.svg';
 
-export const Portfolio = () => {
-	return (
-		<section className="portfolio">
-			<h2 className="portfolio__title">Портфолио</h2>
-			<nav className="portfolio__group">
-				<ul className="portfolio__list">
-					<li className="portfolio__item">
-						<p className="portfolio__heading">Статичный сайт</p>
-						<a className="portfolio__link" rel="noreferrer" target="_blank" href="https://agroball.github.io/how-to-learn/"><img className="portfolio__image" src={image} alt="Ссылка" /></a>
-					</li>
-					<li className="portfolio__item">
-						<p className="portfolio__heading">Адаптивный сайт</p>
-						<a className="portfolio__link" rel="noreferrer" target="_blank" href="https://agroball.github.io/russian-travel/"><img className="portfolio__image" src={image} alt="Ссылка" /></a>
-					</li>
-					<li className="portfolio__item">
-						<p className="portfolio__heading">Одностраничное приложение</p>
-						<a className="portfolio__link" rel="noreferrer" target="_blank" href="https://agroball.sharli.nomoredomains.work/"><img className="portfolio__image" src={image} alt="Ссылка" /></a>
-					</li>
-				</ul>
-			</nav>
-		</section>
-	);
+
+function Portfolio() {
+    return (
+        <section className="portfolio">
+            <h3 className="portfolio__title">Портфолио</h3>
+            <nav className="portfolio__list">
+                <a href="https://agroball.github.io/how-to-learn/" target="_blank" rel="noreferrer" className="portfolio__link">Статичный сайт<img src={cursor} alt="линк" name="ссылка"/></a>
+                <a href="https://agroball.github.io/russian-travel/" target="_blank" rel="noreferrer" className="portfolio__link">Адаптивный сайт<img src={cursor} alt="линк" name="ссылка"/></a>
+                <a href="https://agroball.sharli.nomoredomains.work/" target="_blank" rel="noreferrer" className="portfolio__link">Одностраничное приложение<img src={cursor} alt="линк" name="ссылка"/></a>
+            </nav>
+        </section>
+    );
 }
+export default Portfolio;

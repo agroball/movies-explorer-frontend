@@ -1,82 +1,66 @@
-import React from 'react';
-import { MoviesCard } from '../MoviesCard/MoviesCard';
-import { Preloader } from '../Preloader/Preloader';
+import { React, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css';
-import {
-  MAX_SIZE, MIDDLE_SIZE_START, MOVIES_COUNT_MAX, MOVIES_COUNT_MIDDLE,
-  MOVIES_COUNT_LOW, MOVIES_COUNT_MAX_STEP, MOVIES_COUNT_MIDDLE_STEP
-} from "../../utils/constans";
+import MoviesCard from '../MoviesCard/MoviesCard';
+import More from './More/More';
+import NotFound from './MoviesNotFound/MoviesNotFound';
+import Preloader from '../Preloader/Preloader';
 
-export const MoviesCardList = (props) => {
+function MoviesCardList({ movies, onSave, isLiked, onDelete, emptyResult, preloader }) {
 
-  const [count, setCount] = React.useState(0);
-  const buttonClassName = `card-list__button ${count >= props.movies.length && "card-list__button_hidden"}`
-  const isNotFound = props.isNotFoundMovies && props.movies.length === 0;
-  const isServerMoviesError = props.isServerMoviesError && props.movies.length === 0;
+    const [countCards, setCountCards] = useState(defineCountCard('start'));//Сколько карточек
+    const [isBtnActive, setIsBtnActive] = useState(false);//Кнопка еще
 
-  function handleMoviesCount(width) {
-    if (props.component === 'savedMovies') {
-      return { count: props.movies.length }
+
+    useEffect(() => {
+        window.addEventListener("resize", defineCountCard);
+        }, []);//Размер экрана
+
+    useEffect(() => {
+        countCards < movies.length ? setIsBtnActive(true) : setIsBtnActive(false);
+        }, [countCards, movies]);//Показать убрать кнопку
+
+    function defineCountCard(string) {
+        let cardsArr = 0;
+        let addCards = 0;
+
+        if (document.documentElement.scrollWidth > 520) {
+        cardsArr = 7;
+        addCards = 7;
+        }
+        else {
+        cardsArr = 5;
+        addCards = 2;
+        }
+        if (string === 'start') {
+        return cardsArr
+        } else {
+        return addCards
+        }
     }
-    if (width >= MAX_SIZE) {
-      return { count: props.loadedFilms || MOVIES_COUNT_MAX, countStep: MOVIES_COUNT_MAX_STEP }
-    } else if (width >= MIDDLE_SIZE_START && width < MAX_SIZE) {
-      return { count: props.loadedFilms || MOVIES_COUNT_MIDDLE, countStep: MOVIES_COUNT_MIDDLE_STEP }
-    } else {
-      return { count: props.loadedFilms || MOVIES_COUNT_LOW, countStep: MOVIES_COUNT_MIDDLE_STEP }
-    }
-  }
+  //Определяем сколько показать карточек сначале и плюсом
+    function handleMoreButton() {
+        setCountCards(countCards + defineCountCard('more'));
+    }//Клик по кнопке
 
-  function handleSetCount({ count }) {
-    setCount(count)
-    if (props.component !== 'savedMovies') props.onLoadedFilms(count)
-  }
-
-  function getWidth() {
-    const width = window.innerWidth
-    handleSetCount(handleMoviesCount(width))
-  }
-
-  function handleUpdateWidth() {
-    setTimeout(getWidth, 1000)
-  }
-
-  function handleButton() {
-    const width = window.innerWidth
-    const { countStep } = handleMoviesCount(width)
-    setCount((state) => state + countStep)
-    props.onLoadedFilms((state) => state + countStep)
-  }
-
-  React.useEffect(() => {
-    window.addEventListener("resize", handleUpdateWidth)
-    return () => {
-      window.removeEventListener("resize", handleUpdateWidth)
-    }
-  })
-
-  React.useEffect(() => {
-    const width = window.innerWidth;
-    handleSetCount(handleMoviesCount(width))
-  }, [props.movies])
-
-
-  return (
-    <section className="card-list">
-      {props.isLoading && <Preloader />}
-      {isNotFound && <p className="card-list__error-message">Ничего не найдено.</p>}
-      {isServerMoviesError && <p className="card-list__error-message">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.</p>}
-      <div className="card-list__wrapper">
-        {props.movies.slice(0, count).map((movie) => (
-          <MoviesCard
-            key={movie.id || movie.movieId}
-            movie={movie}
-            onHandleMovieButton={props.onHandleMovieButton}
-            savedMovies={props.savedMovies}
-            component={props.component} />
+return (
+<section className="cards">
+<ul className="cards__gallery">
+    {movies.slice(0, countCards).map((cardObj) => (
+       <MoviesCard
+            key={cardObj.id}
+            card={cardObj}
+            onSave={onSave}
+            onDelete={onDelete}
+            isLiked={isLiked}
+        />
         ))}
-      </div>
-      <button className={buttonClassName} onClick={handleButton}>Еще</button>
-    </section>
-	);
+</ul>
+    {preloader && (<Preloader />)}
+    {emptyResult && <NotFound />}
+    {useLocation().pathname==='/movies' && (isBtnActive ? <More handleMoreBtn={handleMoreButton} /> : '')}
+</section>
+)
 }
+
+export default MoviesCardList;

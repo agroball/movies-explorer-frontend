@@ -1,19 +1,19 @@
-import React from 'react';
-import { AboutMe } from '../AboutMe/AboutMe';
-import { AboutProject } from '../AboutProject/AboutProject';
-import { Portfolio } from '../Portfolio/Portfolio';
-import { Promo } from '../Promo/Promo';
-import { Tech } from '../Tech/Tech';
+import './Main.css';
+import Promo from '../Promo/Promo';
+import AboutProject from '../AboutProject/AboutProject';
+import Techs from '../Techs/Techs';
+import AboutMe from '../AboutMe/AboutMe';
+import Portfolio from '../Portfolio/Portfolio';
 
-export const Main = () => {
-
-	return (
-		<main >
-			<Promo />
-			<AboutProject />
-			<Tech />
-			<AboutMe />
-			<Portfolio />
-		</main>
-	);
+function Main() {
+    return (
+        <section className="main">
+            <Promo />
+            <AboutProject />
+            <Techs />
+            <AboutMe />
+            <Portfolio />
+        </section>
+    );
 }
+export default Main;

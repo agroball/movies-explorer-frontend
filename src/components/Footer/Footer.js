@@ -1,20 +1,21 @@
-import React from 'react';
 import './Footer.css';
 
-export const Footer = () => {
+function Footer() {
 	return (
 		<footer className="footer">
-			<h2 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
-			<div className="footer__wrapper">
-				<p className="footer__author">&copy; 2021</p>
-				<nav>
-					<ul className="footer__links">
-						<li className="footer__wrapper-link"><a target="_blank" rel="noreferrer" href="https://praktikum.yandex.ru" className="footer__link">Яндекс.Практикум</a></li>
-						<li className="footer__wrapper-link"><a target="_blank" rel="noreferrer" href="https://github.com/agroball" className="footer__link">Github</a></li>
-						<li className="footer__wrapper-link"><a target="_blank" rel="noreferrer" href="https://www.codewars.com/users/agroball" className="footer__link">Codewars</a></li>
-					</ul>
-				</nav>
-			</div>
-		</footer>
+            <div className="footer__content">
+			<p className="footer__description">Учебный проект Яндекс.Практикум х BeatFilm.</p>
+            <div className="footer__menu">
+            <p className="footer__copyright">&copy; 2021</p>
+            <nav className="footer__social">
+                <a href="https://praktikum.yandex.ru" target="_blank" rel="noreferrer" className="footer__link link">Яндекс.Практикум</a>
+                <a href="https://github.com/agroball" target="_blank" rel="noreferrer" className="footer__link link">Github</a>
+                <a href="https://www.codewars.com/users/agroball" target="_blank" rel="noreferrer" className="footer__link link">Codewars</a>
+            </nav>
+            </div>
+            </div>
+        </footer>
 	);
 }
+
+export default Footer;

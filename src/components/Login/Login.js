@@ -1,60 +1,76 @@
-import React from 'react';
-import { Form } from '../Form/Form';
-import { Input } from '../Input/Input';
+import {React, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Form from '../Form/Form';
+import Logo from '../Logo/Logo';
+import "./Login.css";
+import FormValidation from '../Validation/Validation';
 
-export const Login = (props) => {
+function Login({handleLogin, error}) {
 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+    const formValidation = FormValidation();
+    const [formSavedProcess, setFormSavedProcess] = useState(false);
+    const {email, password} = formValidation.data;
 
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
 
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.onLogin({ email: email, password: password });
+    function handleSubmit(e) {
+        setFormSavedProcess(true)
+        e.preventDefault();
+        if (!email || !password) {
+            return;
+        }
+        handleLogin({ email: email, password: password });
+        formValidation.resetForm();
+        setTimeout(()=>{setFormSavedProcess(false)}, 3000);
+    }
 
-  }
 
-	return (
-		<Form
-      onSubmit={handleSubmit}
-			title="Рады видеть!"
-			typeLink="Регистрация"
-			to="/signup"
-			typeButton="Войти"
-			check="Еще не зарегистрированы?"
-			onIsHidden={props.onIsHidden}
-      isFormDisabled={props.isFormDisabled}>
-			<div className="form__wrapper">
-				<Input
-          onChange={handleEmail}
-          value={email}
-					className="form__input"
-          classNameError="form__input_error"
-					type="email"
-					minLength="2"
-					maxLength="30"
-          isFormDisabled={props.isFormDisabled}/>
-				<label className="form__label">Email</label>
-			</div>
-			<div className="form__wrapper form__wrapper_for_login">
-				<Input
-          onChange={handlePassword}
-          value={password}
-					className="form__input"
-          classNameError="form__input_error"
-					type="password"
-					minLength="4"
-					maxLength="16"
-          isFormDisabled={props.isFormDisabled}/>
-				<label className="form__label">Пароль</label>
-			</div>
-		</Form>
-	);
+    return (
+        <section className="login">
+            <Logo/>
+                <h1 className="login__greetings">Рады видеть!</h1>
+                    <Form
+                    id={'login'}
+                    name={'signin'}
+                    onSubmit={handleSubmit}
+                    button={'Войти'}
+                    errorText={error}
+                    isValid={formValidation.isValid}
+                    >
+                        <p className="form__input-name">E-mail</p>
+                        <input className={`form__input ${formValidation.inputValid.email===undefined ? '' : (!formValidation.inputValid.email ? "form__input_invalid" : '')}`}
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        maxLength="60"
+                        minLength="5"
+                        onChange={formValidation.handleChange}
+                        placeholder="Введите почту"
+                        value={email || ''}
+                        pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"
+                        required
+                        disabled={formSavedProcess ? true : false}
+                         />
+                    <span className="form__input-error">{formValidation.errors.email}</span>
+                    <p className="form__input-name">Пароль</p>
+                    <input className={`form__input ${formValidation.inputValid.password===undefined ? '' : (!formValidation.inputValid.password ? "form__input_invalid" : '')}`}
+                            id="password-input"
+                            type="password"
+                            name="password"
+                            maxLength="20"
+                            minLength="5"
+                            placeholder="Введите пароль"
+                            onChange={formValidation.handleChange}
+                            autoComplete="off"
+                            value={password || ''}
+                            required
+                            disabled={formSavedProcess ? true : false}
+                         />
+                    <span className="form__input-error">{formValidation.errors.password}</span>
+                    </Form>
+                <p className="login__link">Ещё не зарегистрированы? <Link className="login__link_linked" to='/signup'>Регистрация</Link></p>
+        </section>
+    )
 }
+
+export default Login;

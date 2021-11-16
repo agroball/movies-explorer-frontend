@@ -1,0 +1,69 @@
+.register{
+    padding: 5.47% 34.53%;
+    display: flex;
+    flex-direction: column;
+}
+
+.register__greetings{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 40px 0;
+}
+
+.register__link{
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    text-align: center;
+}
+
+.register__link_linked {
+  color: #2BE080;
+}
+
+@media screen and (max-width: 1110px) {
+
+    .register{
+        padding: 17.84% 29.37%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+
+    .register{
+        padding: 30.21% 24.22%;
+    }
+
+}
+
+@media screen and (max-width: 644px) {
+
+    .register__greetings{
+        margin: 6.21% 0;
+    }
+}
+
+@media screen and (max-width: 582px) {
+
+    .register__greetings{
+        margin: 12.72% 0 18.49;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    .register{
+        padding: 17.5% 9.375% 9.375%;
+        align-items: center;
+    }
+
+    .register__greetings{
+        margin: 19.23% 0 30.77%;
+    }
+
+    .register__link{
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

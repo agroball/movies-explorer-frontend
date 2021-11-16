@@ -1,0 +1,9 @@
+.logo{
+    width: 38px;
+    height: 38px;
+    transition: filter .4s;
+}
+
+.logo:hover{
+    filter: opacity(70%);
+}

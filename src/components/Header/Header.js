@@ -1,29 +1,19 @@
-import React from 'react';
-import { Navigation } from '../Navigation/Navigation';
-import { Link } from 'react-router-dom';
+import Navigation from '../Navigation/Navigation';
+import Logo from '../Logo/Logo';
+
 import './Header.css';
 
-export const Header = (props) => {
-
-  const [isHamburgerOpen, setIsHamburgerOpen] = React.useState(false);
-
-  function handleHamburgerOpen() {
-    setIsHamburgerOpen(true)
-  }
-
-  function handleHamburgerClose() {
-    setIsHamburgerOpen(false)
-  }
-  return (
-    <header className={`header ${props.moviesBackground}`}>
-      <Link to="/" className="logo"/>
-      <div className="header__wrapper">
-        <Navigation
-          isAuth={props.isAuth}
-          isOpenHamburger={isHamburgerOpen}
-          onHamburgerOpen={handleHamburgerOpen}
-          onHamburgerClose={handleHamburgerClose} />
-      </div>
-    </header>
-  );
+function Header({onClose, isOpen, onMenuBtnClick, loggedIn }) {
+    return (
+        <header className={`header ${!loggedIn ? "header_unauth" : ''}`}>
+            <Logo/>
+            <Navigation
+            loggedIn={loggedIn}
+            isOpen={isOpen}
+            onClose={onClose}
+            onMenuBtnClick={onMenuBtnClick}
+            />
+        </header>
+    );
 }
+export default Header;

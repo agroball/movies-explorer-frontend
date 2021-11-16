@@ -1,51 +1,44 @@
-import React from 'react';
 import './MoviesCard.css';
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useLocation } from "react-router-dom";
 
-export const MoviesCard = (props) => {
+function MoviesCard({ card, onSave, onDelete, isLiked }) {
 
-  const { nameRU, image, duration } = props.movie;
-  const currentUser = React.useContext(CurrentUserContext);
-  const id = props.movie.id || props.movie.movieId;
-  const savedMovies = props.savedMovies || [];
-  const trailer = props.movie.trailerLink || props.movie.trailer
-  const isLiked = savedMovies.some(item => item.movieId === id && item.owner === currentUser.id);
-  const movieSavedButtonClassName = (`movies-card__button ${isLiked && 'movies-card__button_like_active'}`);
-  const buttonState = props.component === 'movies';
-
-
-  function handleButton() {
-    props.onHandleMovieButton(props.movie)
-  }
-
-  function returnLink() {
-    if (typeof image === 'object') {
-      return 'https://api.nomoreparties.co' + image.url
-    } else {
-      return image
+    function TimeMath(count){
+        const hours = Math.floor(count / 60);
+        const minutes = Math.floor(count - (hours * 60));
+        return `${hours > 0 ? (hours + ' ч : ' + minutes + ' мин') : (minutes + ' мин')}`;
     }
-  }
 
-  function returnDuration () {
-    if(duration <= 60) {
-      return duration+ 'м'
-    }
-    const hours = Math.trunc(duration/60);
-    const minutes = duration % 60;
-    return hours + 'ч ' + minutes + 'м';
-  }
+    let pathname = useLocation().pathname;
 
-  return (
-    <article className="movies-card">
-      <a href={trailer} target="_blank" rel="noreferrer">
-        <img className="movies-card__image" alt="Картинка к фильму" src={returnLink()} />
-      </a>
-      <div className="movies-card__wrapper">
-        <h2 className="movies-card__title">{nameRU}</h2>
-        {buttonState && <button onClick={handleButton} className={movieSavedButtonClassName}/>}
-        {!buttonState && <button onClick={handleButton} className="movies-card__button movies-card__button_delete_card"/>}
-      </div>
-      <p className="movies-card__time">{returnDuration()}</p>
-    </article>
-  );
+
+    function handleSaveClick(evt) {
+        evt.preventDefault();
+        onSave(card);
+      }
+
+      function handleDeleteClick(evt) {
+        evt.preventDefault();
+        onDelete(card)
+      }
+
+    return (
+        <li className="movie-card">
+            <div className="movie-card__content">
+            <div className="movie-card__info">
+                <h2 className="card__title">{card.nameRU}</h2>
+              <button
+                className={pathname === "/movies" ? `movie-card__btn-like ${isLiked(card) ? "movie-card__btn-like_active" : ""}` : "movie-card__btn-delete"}
+                type="button"
+                onClick={pathname === "/movies" && !isLiked(card) ? handleSaveClick : handleDeleteClick}
+              >
+              </button>
+            </div>
+              <p className="movie-card__duration">{TimeMath(card.duration)}</p>
+                    </div>
+            <a href={card.trailer} target="_blank" rel="noreferrer"><img className="movie-card__image" src={card.image} alt={card.nameRU} /></a>
+        </li>
+    )
 }
+
+export default MoviesCard;

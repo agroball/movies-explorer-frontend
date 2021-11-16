@@ -1,86 +1,85 @@
-import React from 'react';
-import { Input } from '../Input/Input';
+import {React, useState } from 'react';
 import './Profile.css';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import Form from '../Form/Form';
+import FormValidation from '../Validation/Validation';
 
-export const Profile = (props) => {
+function Profile(props) {
 
-  const formRef = React.useRef();
-  const currentUser = React.useContext(CurrentUserContext);
+    const formValidation = FormValidation();
+    const [formSavedProcess, setFormSavedProcess] = useState(false);
+    const {email, name} = formValidation.data;
 
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = React.useState(false);
-  const buttonClassName = `profile__button ${(isButtonDisabled || props.isFormDisabled) && "profile__button_disabled"}`
-
-  function handleName(e) {
-  setName(e.target.value);
-  }
-  function handleEmail(e){
-    setEmail(e.target.value);
-  }
-  function handleSubmit(e){
-    e.preventDefault();
-    props.onUpdateUser({
-      name: name,
-      email: email,
-    });
-  }
-
-  React.useEffect(() => {
-    if(formRef.current && formRef.current.checkValidity()
-      && name !== currentUser.name && email !== currentUser.email) {
-      setIsButtonDisabled(false);
-    }else{
-      setIsButtonDisabled(true);
+    function handleSubmit(e) {
+        setFormSavedProcess(true)
+        e.preventDefault();
+        if (!email || !name) {
+            return;
+        }
+        props.onSave({ email: email, name: name });
+        formValidation.resetForm();
+        setTimeout(()=>{setFormSavedProcess(false)}, 3000);
     }
-  })
 
-	React.useEffect(() => {
-		props.onIsHiddenFooter(false)
-		return () => {
-			props.onIsHiddenFooter(true)
-		}
-	}, [])
+    function handleCancel() {
+        props.onClose();
+        formValidation.resetForm();
+    }
+    
 
-	return (
-		<div className="profile">
-			<h1 className="profile__title">Привет, {props.currentUser.name}!</h1>
-			<form ref={formRef} className="profile__form" onSubmit={handleSubmit}>
-				<div className="profile__wrapper">
-					<Input
-						className="profile__input"
-            classNameError="profile__input_error"
-						type="text"
-						minLength="2"
-						maxLength="30"
-            placeholder={props.currentUser.name}
-            value={props.currentUser.name}
-            onChange={handleName}
-            isFormDisabled={props.isFormDisabled}
-          />
-					<label className="profile__label">Имя</label>
-				</div>
-				<div className="profile__wrapper">
-					<Input
-            className="profile__input profile__input_email"
-            classNameError="profile__input_error"
-						type="email"
-						minLength="2"
-						maxLength="30"
-            placeholder={props.currentUser.email}
-            value={props.currentUser.email}
-            onChange={handleEmail}
-            isFormDisabled={props.isFormDisabled}
-          />
-					<label className="profile__label">E-mail</label>
-				</div>
-				<button
-          className={buttonClassName}
-          type="submit"
-          disabled={isButtonDisabled}>Редактировать</button>
-			</form>
-			<button className="profile__link" onClick={props.onSignOut}>Выйти из аккаунта</button>
-		</div>
-	);
+    return (
+        <section className="profile">
+            <h1 className="profile__greetings">Привет {props.userData.name}</h1>
+            <div className={`profile__info ${props.isOpen ? 'profile__info_hide' : ''}`}>
+                <p className="profile__line">Имя<span className="profile__line_userinfo">{props.userData.name}</span></p>
+                <p className="profile__line">Почта<span className="profile__line_userinfo">{props.userData.email}</span></p>
+                <p className="profile__btn" onClick={props.onEditBtnClick}>Редактировать</p>
+                <p className="profile__btn profile__btn_quit" onClick={props.onLogOut}>Выйти из аккаунта</p>
+            </div>
+            <div className={`profile__form ${props.isOpen ? 'profile__form_opened' : ''}`}>
+                <Form
+                    id={'profile'}
+                    name={'user'}
+                    onSubmit={handleSubmit}
+                    button={'Сохранить'}
+                    errorText={props.error}
+                    successText={props.success}
+                    isValid={formValidation.isValid}
+                    >
+                        <p className="form__input-name">Имя</p>
+                        <input className={`form__input ${formValidation.inputValid.name===undefined ? '' : (!formValidation.inputValid.name ? "form__input_invalid" : '')}`}
+                        id="name-input"
+                        name="name"
+                        type="text"
+                        maxLength="30"
+                        minLength="2"
+                        onChange={formValidation.handleChange}
+                        placeholder={props.userData.name}
+                        value={name || ''}
+                        pattern="[A-Za-zА-Яа-яЁё0-9\s-]{2,30}"
+                        required
+                        disabled={formSavedProcess ? true : false}
+                        />
+                        <span name="name" className="form__input-error">{formValidation.errors.name}</span>
+                        <p className="form__input-name">Почта</p>
+                        <input className={`form__input ${formValidation.inputValid.email===undefined ? '' : (!formValidation.inputValid.email ? "form__input_invalid" : '')}`}
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        maxLength="60"
+                        minLength="5"
+                        onChange={formValidation.handleChange}
+                        placeholder={props.userData.email}
+                        value={email || ''}
+                        pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"
+                        required
+                        disabled={formSavedProcess ? true : false}
+                         />
+                        <span name="email" className="form__input-error">{formValidation.errors.email}</span>
+                        <p className="profile__btn-cancel" onClick={handleCancel}>Отмена</p>
+                </Form>
+            </div>
+        </section>
+    )
 }
+
+export default Profile;

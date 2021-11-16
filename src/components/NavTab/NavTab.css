@@ -1,7 +1,7 @@
 .navtab {
-	display: flex;
+  display: flex;
   flex-direction: row;
-	position: absolute;
+  position: absolute;
   bottom: 7%;
   left:5.5%;
 }
@@ -21,7 +21,7 @@
 }
 
 .navtab__element {
-	display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 129px;
@@ -31,33 +31,32 @@
   border-radius: 3px;
   cursor: pointer;
   text-decoration: none;
-	color: #fff;
-	margin-right: 10px;
-	margin-bottom: 32px;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 16px;
+  color: #fff;
+  margin-right: 10px;
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .navtab__element:hover {
-	opacity: 0.6;
-	transition-duration: 1s;
+  opacity: 0.6;
+  transition-duration: 1s;
 }
 
 @media screen and (max-width: 767px) {
-	.navtab__element {
-		margin-bottom: 30px;
-	}
+  .navtab__element {
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 450px) {
-	.navtab__element {
-		margin-bottom: 17px;
-		margin-right: 6px;
-		font-size: 10px;
+  .navtab__element {
+    margin-bottom: 17px;
+    margin-right: 6px;
+    font-size: 10px;
     line-height: 16px;
     font-style: normal;
     font-weight: 500;
-	}
+  }
 }
-

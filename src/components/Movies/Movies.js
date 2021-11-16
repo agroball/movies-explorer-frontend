@@ -1,36 +1,40 @@
-import React from 'react';
-import { MoviesCardList } from '../MoviesCardList/MoviesCardList';
-import { SearchForm } from '../SearchForm/SearchForm';
+import { React, useState, useEffect } from 'react';
+import './Movies.css';
+import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-export const Movies = (props) => {
+function Movies({ isLiked, movies, onSave, onDelete, onSubmit, preloader, error, emptyResult }) {
 
-  React.useEffect(()=> {
-    props.onLoadedFilms(0)
-    props.onIsNotFoundMovies(false)
-  },[])
+  const [checkbox, setCheckbox] = useState(false);
+  const [resultMovies, setResultMovies] = useState([]);
+
+  useEffect(() => {
+    checkbox ? setResultMovies(movies.filter(movie => movie.duration <= 40)) : setResultMovies(movies)
+  }, [checkbox, movies]);
+
+  function handleCheckbox() {
+    setCheckbox(!checkbox);
+  }
 
   return (
-		<>
-			<SearchForm
-        onGetFilms={props.onGetFilms}
-        onFindByDuration={props.onFindByDuration}
-        movies={props.movies}
-        onSetMovies={props.onSetMovies}
-        isFormDisabled={props.isFormDisabled}
-        keyValue="keyValueMovies"
-      />
-			<MoviesCardList
-        movies={props.movies}
-        onHandleMovieButton={props.onHandleMovieButton}
-        savedMovies={props.savedMovies}
-        component='movies'
-        onSetMovies={props.onSetMovies}
-        isLoading={props.isLoading}
-        onLoadedFilms={props.onLoadedFilms}
-        loadedFilms={props.loadedFilms}
-        isNotFoundMovies={props.isNotFoundMovies}
-        isServerMoviesError={props.isServerMoviesError}
-      />
-		</>
-	);
+    <section className="movies">
+      <div className="movies__container">
+        <SearchForm
+        handleCheckbox={handleCheckbox}
+        checkbox={checkbox}
+        onSubmit={onSubmit}
+        error={error}
+         />
+        <MoviesCardList
+        movies={resultMovies}
+        onSave={onSave}
+        onDelete={onDelete}
+        emptyResult={emptyResult}
+        preloader={preloader}
+        isLiked={isLiked}
+        />
+      </div>
+    </section>
+  )
 }
+export default Movies

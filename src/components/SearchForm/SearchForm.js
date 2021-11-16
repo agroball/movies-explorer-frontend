@@ -1,43 +1,45 @@
-import React from 'react';
-import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
+import { useState } from "react";
 import './SearchForm.css';
+import findButton from '../../images/find.png';
+import Checkbox from './Checkbox/Checkbox';
 
-export const SearchForm = (props) => {
+function SearchForm({ handleCheckbox, checkbox, onSubmit, error }) {
 
-  const [keyValue, setKeyValue] = React.useState('');
+    const [request, setRequest] = useState({});
 
-  function handleKeyValue(e) {
-    setKeyValue(e.target.value)
-  }
+    function handleChange(e) {
+        const { target } = e;
+        const { name, value } = target;
+        setRequest({...request, [name]: value });
+      }
 
-  function handleSearch(e) {
-    e.preventDefault()
-    props.onGetFilms(keyValue)
-  }
-
-  React.useEffect(() => {
-    if (localStorage.getItem(props.keyValue)) {
-      setKeyValue(localStorage.getItem(props.keyValue))
+    function handleSubmit(e) {
+        e.preventDefault();
+        onSubmit(request);
     }
-  }, [])
 
-	return (
-    <section className="search-form">
-      <form className="search-form__form" onSubmit={handleSearch}>
-        <div className="search-form__container">
-          <input onChange={handleKeyValue} value={keyValue} className="search-form__input" type="search" placeholder="Фильм" disabled={props.isFormDisabled} required></input>
-          <button className={`search-form__button ${props.isFormDisabled && "search-form__button_disabled"}`} disabled={props.isFormDisabled} type="submit">Поиск</button>
-        </div>
-        <div className="search-form__wrapper">
-          <label className="search-form__title">Короткометражки</label>
-          <FilterCheckbox
-            onFindByDuration={props.onFindByDuration}
-            movies={props.movies}
-            onSetMovies={props.onSetMovies}
-            keyValue={keyValue}
-            onGetFilms={props.onGetFilms} />
-        </div>
-      </form>
-    </section>
-	);
+    return (
+        <section className="search-form">
+            <form className="search-form__box"
+            id='search'
+            name='search'
+            onSubmit={handleSubmit}
+            noValidate
+            >
+                <fieldset className="search-form__bar">
+                    <input className="search-form__input"
+                    type="text"
+                    name="movie"
+                    placeholder="Фильм"
+                    onChange={handleChange}
+                    value={request.value}
+                    required />
+                    <button type="submit" className="search-form__submit-btn">Поиск</button>
+                </fieldset>
+                <span className="search-form__error">{error.text}</span>
+                <Checkbox handleCheckbox={handleCheckbox} checkbox={checkbox} />
+            </form>
+        </section>
+    );
 }
+export default SearchForm;

@@ -1,41 +1,40 @@
-import React from 'react';
-import { MoviesCardList } from '../MoviesCardList/MoviesCardList';
-import { SearchForm } from '../SearchForm/SearchForm';
+import { React, useState, useEffect } from 'react';
 import './SavedMovies.css';
+import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-export const SavedMovies = (props) => {
+function SavedMovies({ isLiked, movies, onSubmit, onDelete, preloader, error, emptyResult  }) {
 
-  React.useEffect(() => {
+  const [checkbox, setCheckbox] = useState(false);
+  const [resultMovies, setResultMovies] = useState([]);
 
-    if (!localStorage.getItem('keyValueSavedMovies')) {
-      props.onHandleMovies()
-    }
-    props.onComponentSavedMovies(true)
-    props.onIsNotFoundMovies(true)
-    return () => {
-      props.onComponentSavedMovies(false)
-    }
-  }, [])
+  useEffect(() => {
+    checkbox ? setResultMovies(movies.filter(movie => movie.duration <= 40)) : setResultMovies(movies)
+  }, [checkbox, movies]);
 
-	return (
-    <>
+  function handleCheckbox() {
+    setCheckbox(!checkbox);
+  }
+
+  return (
+    <section className="saved-movies">
+      <div className="movies__container">
       <SearchForm
-        onGetFilms={props.onGetFilms}
-        movies={props.savedMovies}
-        onFindByDuration={props.onFindByDuration}
-        onSetMovies={props.onSetMovies}
-        keyValue="keyValueSavedMovies" />
-      <div className="card-list">
+        handleCheckbox={handleCheckbox}
+        checkbox={checkbox}
+        onSubmit={onSubmit}
+        error={error}
+         />
         <MoviesCardList
-          movies={props.savedMovies}
-          component='savedMovies'
-          onHandleMovieButton={props.onHandleMovieButton}
-          isLoading={props.isLoading}
-          onLoadedFilms={props.onLoadedFilms}
-          isNotFoundMovies={props.isNotFoundMovies}
-          isServerMoviesError={props.isServerMoviesError}
-        />
+        movies={resultMovies}
+        onDelete={onDelete}
+        emptyResult={emptyResult}
+        preloader={preloader}
+        isLiked={isLiked}
+          />
       </div>
-    </>
-	);
+    </section>
+  )
+
 }
+export default SavedMovies

@@ -1,12 +1,9 @@
-import React from "react";
+import React from 'react';
 import { Route, Redirect } from "react-router-dom";
 
-export const ProtectedRoute = ({ component: Component, ...props }) => {
-  return (
-    <Route>
-      {() =>
-        props.isAuth ? <Component {...props} /> : <Redirect to="/signin" />
-      }
-    </Route>
-  );
-};
+const ProtectedRoute = ({...routeProps}) => {
+  const logged = localStorage.getItem("loggedIn");
+    return logged ? <Route {...routeProps} /> : <Redirect to="/"/>
+  };
+
+export default ProtectedRoute;
