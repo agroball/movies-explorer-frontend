@@ -68,7 +68,7 @@ function handleLogin({ email, password }) {
   MainApi.authorize(email, password)
     .then((res) => {
       if (res) {
-        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('loggedIn', true);
         tokenCheck();
          history.push("/movies");
       }
@@ -114,7 +114,7 @@ function tokenCheck() {
         setLoggedIn({
           loggedIn: true,
         });
-        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('loggedIn', true);
       };
     })
       .catch((error) => {

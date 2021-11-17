@@ -1,7 +1,7 @@
 class MainApi {
     constructor({ url, headers }) {
-        this._url = url;
-        this._headers = headers;
+        this.url = url;
+        this.headers = headers;
     }
 
 
@@ -15,7 +15,7 @@ class MainApi {
 
 
   register(name, email, password) {
-    return fetch(`${this._url}/signup`, {
+    return fetch(`${this.url}/signup`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
