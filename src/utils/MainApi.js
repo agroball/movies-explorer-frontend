@@ -19,7 +19,6 @@ class MainApi {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        'Access-Control-Allow-Credentials': true,
     },
       body: JSON.stringify(name, email, password)
     })
@@ -34,7 +33,6 @@ class MainApi {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Access-Control-Allow-Credentials': true,
     },
       credentials: 'include',
       body: JSON.stringify({ password, email })
@@ -146,7 +144,6 @@ patchPersonInfo(name, email) {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Credentials': true,
         }
       }).then(response => {
         return this._getResJson(response);
@@ -154,4 +151,4 @@ patchPersonInfo(name, email) {
     };
   }
 
-export default new MainApi({url: `https://api.agroball.diplom.nomoredomains.monster`});
+export default new MainApi({url: 'https://api.agroball.diplom.nomoredomains.monster'});
