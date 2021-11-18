@@ -1,49 +1,40 @@
-class MainApi {
-    constructor({ url, headers }) {
-        this.url = url;
-        this.headers = headers;
-    }
+export const BACK_URL = 'https://api.agroball.diplom.nomoredomains.monster';
 
-
-    _getResJson(response) {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response.status);
-    }
-
-
-
-  register(name, email, password) {
-    return fetch(`${this.url}/signup`, {
+ export const register = (name, email, password) => {
+    return fetch(`${BACK_URL}/signup`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
     },
-      body: JSON.stringify(name, email, password)
+      body: JSON.stringify({name, email, password})
     })
-      .then(response => {
-        return this._getResJson(response);
+      .then((res) => {
+        if(!res.ok) {
+          return Promise.reject(res.status)
+        } else {
+          return res.json();
+        }
       })
   };
 
-
-  authorize(email, password) {
-    return fetch(`${this._url}/signin`, {
-      method: "POST",
+  export const authorize = (email, password) => {
+    return fetch(`${BACK_URL}/signin`, {
+      method: 'POST',
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
     },
-      credentials: 'include',
-      body: JSON.stringify({ password, email })
+      body: JSON.stringify({ email, password })
     })
-      .then(response => {
-        return this._getResJson(response);
+      .then((res) => {
+        if(!res.ok) {
+          return Promise.reject(res.status)
+        }
       })
   };
 
-  quit() {
-    return fetch(`${this._url}/signout`, {
+ export const quit = () => {
+    return fetch(`${BACK_URL}/signout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,25 +42,32 @@ class MainApi {
     },
       credentials: 'include',
     })
-      .then(response => {
-        return this._getResJson(response);
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.status)
+        }
       })
   };
 
-  getPersonInfo() {
-    return fetch(`${this._url}/users/me`, {
+ export const getPersonInfo = () => {
+    return fetch(`${BACK_URL}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
     },
-    }).then(response => {
-        return this._getResJson(response);
     })
-  };
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.status)
+        } else {
+          return res.json();
+        }
+      })
+  }
 
-patchPersonInfo(name, email) {
-    return fetch(`${this._url}/users/me`, {
+export const patchPersonInfo = (name, email) => {
+    return fetch(`${BACK_URL}/users/me`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {
@@ -79,25 +77,34 @@ patchPersonInfo(name, email) {
             name: name,
             email: email
         })
-    }).then(response => {
-        return this._getResJson(response);
-    });
+    })
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.status)
+        } else {
+          return res.json();
+        }
+      })
 }
 
-
-    getInitialCards() {
-        return fetch(`${this._url}/movies`, {
+  export const getInitialCards = () => {
+        return fetch(`${BACK_URL}/movies`, {
           credentials: 'include',
           headers: {
             "Content-Type": "application/json",
           },
-        }).then(response => {
-            return this._getResJson(response);
-        });
+        })
+          .then(res => {
+            if (!res.ok) {
+              return Promise.reject(res.status)
+            } else {
+              return res.json();
+            }
+          })
     }
 
-    addCard(data) {
-        return fetch(`${this._url}/movies`, {
+   export const addCard = (data) => {
+        return fetch(`${BACK_URL}/movies`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -117,13 +124,17 @@ patchPersonInfo(name, email) {
               nameEN: data.nameEN,
             })
         })
-            .then(response => {
-                return this._getResJson(response);
-            })
+          .then(res => {
+            if (!res.ok) {
+              return Promise.reject(res.status)
+            } else {
+              return res.json();
+            }
+          })
     }
 
-    removeCard(id) {
-        return fetch(`${this._url}/movies/${id}`, {
+   export const removeCard = (id) => {
+        return fetch(`${BACK_URL}/movies/${id}`, {
             method: 'DELETE',
             credentials: 'include',
             headers: {
@@ -138,17 +149,19 @@ patchPersonInfo(name, email) {
             })
     }
 
-    checkToken() {
-      return fetch(`${this._url}/users/me`, {
+   export const checkToken = () => {
+      return fetch(`${BACK_URL}/users/me`, {
         credentials: 'include',
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         }
-      }).then(response => {
-        return this._getResJson(response);
       })
-    };
-  }
-
-export default new MainApi({url: 'https://api.agroball.diplom.nomoredomains.monster'});
+        .then(res => {
+          if (!res.ok) {
+            return Promise.reject(res.status)
+          } else {
+            return res.json();
+          }
+        })
+    }

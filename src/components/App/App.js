@@ -10,8 +10,8 @@ import Login from '../Login/Login';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Footer from '../Footer/Footer';
 import './App.css';
-import MainApi from '../../utils/MainApi';
-import MoviesApi from '../../utils/MoviesApi';
+import * as MainApi from '../../utils/MainApi';
+import * as MoviesApi from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -185,8 +185,7 @@ function getAllMovies() {
 }
 
 function getSavedMovies(userData){
-  MainApi
-  .getInitialCards()
+  MainApi.getInitialCards()
   .then((res) => {
     const newArr = res.filter(movie => movie.owner === userData.id)
     setSavedMovies(newArr);
