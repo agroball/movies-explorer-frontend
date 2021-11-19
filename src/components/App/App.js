@@ -58,6 +58,7 @@ function handleRegister(email, password, name) {
       }
       else {
         setErrorText({text: "Что-то пошло не так!"});
+        console.log(error);
       }
       setTimeout(()=>{setErrorText({text: ""})}, 4000);
     });
@@ -68,9 +69,9 @@ function handleLogin({ email, password }) {
   MainApi.authorize(email, password)
     .then((res) => {
       if (res) {
+        history.push('/movies');
         localStorage.setItem('loggedIn', true);
         tokenCheck();
-         history.push("/movies");
       }
     })
     .catch(error => {
@@ -108,7 +109,8 @@ function handleUpdateUser({ email, name }) {
 
 function tokenCheck() {
   if (localStorage.getItem('loggedIn')) {
-    MainApi.checkToken().then((res) => {
+    MainApi.checkToken()
+      .then((res) => {
       if (res) {
         setUserData({ email: res.email, name: res.name, id: res._id });
         setLoggedIn({
@@ -120,7 +122,7 @@ function tokenCheck() {
       .catch((error) => {
         if (error===401){
         console.log(`Токен не верен`)
-        MainApi.quit();
+        MainApi.signOut();
         }
         else {
           console.log(`Ошибка проверки токена: ${error}`)
@@ -134,7 +136,7 @@ useEffect(() => {
 }, []);
 
 function LogOut() {
-  MainApi.quit();
+  MainApi.signOut();
   setLoggedIn(false);
   localStorage.removeItem('MOVIES_ARRAY');
   localStorage.removeItem('MOVIES_FIND');

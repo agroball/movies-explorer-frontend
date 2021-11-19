@@ -33,7 +33,7 @@ export const BACK_URL = 'https://api.agroball.diplom.nomoredomains.monster';
       })
   };
 
- export const quit = () => {
+ export const signOut = () => {
     return fetch(`${BACK_URL}/signout`, {
       method: "POST",
       headers: {
