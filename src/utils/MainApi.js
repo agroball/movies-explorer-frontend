@@ -1,20 +1,20 @@
 export const BACK_URL = 'https://api.agroball.diplom.nomoredomains.monster';
 
  export const register = (name, email, password) => {
-    return fetch(`${BACK_URL}/signup`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-    },
-      body: JSON.stringify({name, email, password})
-    })
-      .then((res) => {
-        if(!res.ok) {
-          return Promise.reject(res.status)
-        } else {
-          return res.json();
-        }
-      })
+   return fetch(`${BACK_URL}/signup`, {
+     method: 'POST',
+     headers: {
+       "Content-Type": "application/json"
+     },
+     body: JSON.stringify({ name, email, password })
+   })
+     .then(res => {
+       if (!res.ok) {
+         return Promise.reject(res.status)
+       } else {
+         return res.json();
+       }
+     })
   };
 
   export const authorize = (email, password) => {
@@ -22,12 +22,12 @@ export const BACK_URL = 'https://api.agroball.diplom.nomoredomains.monster';
       method: 'POST',
       credentials: 'include',
       headers: {
-        "Content-Type": "application/json",
-    },
-      body: JSON.stringify({ email, password })
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({  email, password })
     })
-      .then((res) => {
-        if(!res.ok) {
+      .then(res => {
+        if (!res.ok) {
           return Promise.reject(res.status)
         }
       })
@@ -150,18 +150,18 @@ export const patchPersonInfo = (name, email) => {
     }
 
    export const checkToken = () => {
-      return fetch(`${BACK_URL}/users/me`, {
-        credentials: 'include',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-        .then(res => {
-          if (!res.ok) {
-            return Promise.reject(res.status)
-          } else {
-            return res.json();
-          }
-        })
+     return fetch(`${BACK_URL}/users/me`, {
+       method: 'GET',
+       credentials: 'include',
+       headers: {
+         "Content-Type": "application/json"
+       }
+     })
+       .then(res => {
+         if (!res.ok) {
+           return Promise.reject(res.status)
+         } else {
+           return res.json();
+         }
+       })
     }

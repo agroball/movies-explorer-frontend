@@ -44,10 +44,11 @@ function closeAll() {
   setErrorText({text: ""})
 }
 
-function handleRegister(email, password, name) {
-  MainApi.register(email, password, name)
+function handleRegister(name, email, password) {
+  MainApi.register(name, email, password)
     .then((res) => {
-      if (res) {handleLogin(email, password);
+      if (res) {
+        handleLogin(email, password);
         console.log("Функция регистрации");
       }
     })
@@ -65,10 +66,11 @@ function handleRegister(email, password, name) {
 }
 
 
-function handleLogin({ email, password }) {
+function handleLogin(email, password) {
   MainApi.authorize(email, password)
     .then((res) => {
       if (res) {
+        setLoggedIn(true);
         history.push('/movies');
         localStorage.setItem('loggedIn', true);
         tokenCheck();
@@ -283,7 +285,7 @@ function moviesSearch(request){
         setMovies([]);
         localStorage.removeItem('MOVIES_FIND');
         setFindNoMovies(true);
-        localStorage.setItem('FIND_NOTHING', true)
+        localStorage.setItem('FIND_NOTHING', true);
         setPreloader(false);
       }
   }, 3000)
