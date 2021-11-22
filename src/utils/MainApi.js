@@ -1,167 +1,158 @@
-export const BACK_URL = 'https://api.agroball.diplom.nomoredomains.monster';
+class MainApi {
+  constructor({ url, headers }) {
+    this._url = url;
+    this._headers = headers;
+  }
 
- export const register = (name, email, password) => {
-   return fetch(`${BACK_URL}/signup`, {
-     method: 'POST',
-     headers: {
-       "Content-Type": "application/json"
-     },
-     body: JSON.stringify({ name, email, password })
-   })
-     .then(res => {
-       if (!res.ok) {
-         return Promise.reject(res.status)
-       } else {
-         return res.json();
-       }
-     })
-  };
 
-  export const authorize = (email, password) => {
-    return fetch(`${BACK_URL}/signin`, {
+  _getResJson(response) {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(response.status);
+  }
+
+
+
+  register(name, email, password) {
+    return fetch(`${this._url}/signup`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Credentials': true,
       },
-      body: JSON.stringify({  email, password })
+      body: JSON.stringify(name, email, password)
     })
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.status)
-        }
+      .then(response => {
+        return this._getResJson(response);
       })
   };
 
- export const signOut = () => {
-    return fetch(`${BACK_URL}/signout`, {
+
+  authorize(email, password) {
+    return fetch(`${this._url}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         'Access-Control-Allow-Credentials': true,
-    },
+      },
       credentials: 'include',
+      body: JSON.stringify({ password, email })
     })
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.status)
-        }
+      .then(response => {
+        return this._getResJson(response);
       })
   };
 
- export const getPersonInfo = () => {
-    return fetch(`${BACK_URL}/users/me`, {
+  signOut() {
+    return fetch(`${this._url}/signout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Credentials': true,
+      },
+      credentials: 'include',
+    })
+      .then(response => {
+        return this._getResJson(response);
+      })
+  };
+
+  getPersonInfo() {
+    return fetch(`${this._url}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
-    },
+      },
+    }).then(response => {
+      return this._getResJson(response);
     })
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.status)
-        } else {
-          return res.json();
-        }
+  };
+
+  patchPersonInfo(name, email) {
+    return fetch(`${this._url}/users/me`, {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email
+      })
+    }).then(response => {
+      return this._getResJson(response);
+    });
+  }
+
+
+  getInitialCards() {
+    return fetch(`${this._url}/movies`, {
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(response => {
+      return this._getResJson(response);
+    });
+  }
+
+
+  addCard(data) {
+    return fetch(`${this._url}/movies`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        country: data.country,
+        director: data.director,
+        duration: data.duration,
+        year: data.year,
+        description: data.description,
+        image: data.image,
+        trailer: data.trailer,
+        thumbnail: data.image,
+        movieId: data.movieId,
+        nameRU: data.nameRU,
+        nameEN: data.nameEN,
+      })
+    })
+      .then(response => {
+        return this._getResJson(response);
       })
   }
 
-export const patchPersonInfo = (name, email) => {
-    return fetch(`${BACK_URL}/users/me`, {
-        method: 'PATCH',
-        credentials: 'include',
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email
-        })
+  removeCard(id) {
+    return fetch(`${this._url}/movies/${id}`, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.status)
-        } else {
-          return res.json();
+      .then(response => {
+        if (response.ok) {
+          return Promise.resolve("done");
         }
+        return Promise.reject(new Error(`Ошибка: ${response.status}`));
       })
+  }
+
+  checkToken() {
+    return fetch(`${this._url}/users/me`, {
+      credentials: 'include',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+      }
+    }).then(response => {
+      return this._getResJson(response);
+    })
+  };
 }
 
-  export const getInitialCards = () => {
-        return fetch(`${BACK_URL}/movies`, {
-          credentials: 'include',
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then(res => {
-            if (!res.ok) {
-              return Promise.reject(res.status)
-            } else {
-              return res.json();
-            }
-          })
-    }
-
-   export const addCard = (data) => {
-        return fetch(`${BACK_URL}/movies`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              country: data.country,
-              director: data.director,
-              duration: data.duration,
-              year: data.year,
-              description: data.description,
-              image: data.image,
-              trailer: data.trailer,
-              thumbnail: data.image,
-              movieId: data.movieId,
-              nameRU: data.nameRU,
-              nameEN: data.nameEN,
-            })
-        })
-          .then(res => {
-            if (!res.ok) {
-              return Promise.reject(res.status)
-            } else {
-              return res.json();
-            }
-          })
-    }
-
-   export const removeCard = (id) => {
-        return fetch(`${BACK_URL}/movies/${id}`, {
-            method: 'DELETE',
-            credentials: 'include',
-            headers: {
-              "Content-Type": "application/json",
-            },
-        })
-            .then(response => {
-                if (response.ok) {
-                    return Promise.resolve("done");
-                }
-                return Promise.reject(new Error(`Ошибка: ${response.status}`));
-            })
-    }
-
-   export const checkToken = () => {
-     return fetch(`${BACK_URL}/users/me`, {
-       method: 'GET',
-       credentials: 'include',
-       headers: {
-         "Content-Type": "application/json"
-       }
-     })
-       .then(res => {
-         if (!res.ok) {
-           return Promise.reject(res.status)
-         } else {
-           return res.json();
-         }
-       })
-    }
+export default new MainApi({url: `http://localhost:3000`});

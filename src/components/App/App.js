@@ -10,8 +10,8 @@ import Login from '../Login/Login';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Footer from '../Footer/Footer';
 import './App.css';
-import * as MainApi from '../../utils/MainApi';
-import * as MoviesApi from '../../utils/MoviesApi';
+import MainApi from '../../utils/MainApi';
+import MoviesApi from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -66,7 +66,7 @@ function handleRegister(name, email, password) {
 }
 
 
-function handleLogin(email, password) {
+function handleLogin({ email, password }) {
   MainApi.authorize(email, password)
     .then((res) => {
       if (res) {

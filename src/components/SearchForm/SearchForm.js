@@ -1,6 +1,5 @@
 import { useState } from "react";
 import './SearchForm.css';
-import findButton from '../../images/find.png';
 import Checkbox from './Checkbox/Checkbox';
 
 function SearchForm({ handleCheckbox, checkbox, onSubmit, error }) {
