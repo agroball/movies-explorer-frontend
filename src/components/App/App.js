@@ -32,23 +32,23 @@ function App() {
   const history = useHistory();
 
 function handleNavMenuClick() {
-  setHeaderMenu(true)
+  setHeaderMenu(true);
 }
 function handleEditBtnClick() {
-  setEditForm(true)
+  setEditForm(true);
 }
 
 function closeAll() {
-  setHeaderMenu(false)
-  setEditForm(false)
-  setErrorText({text: ""})
+  setHeaderMenu(false);
+  setEditForm(false);
+  setErrorText({text: ""});
 }
 
-function handleRegister(name, email, password) {
+function handleRegister({name, email, password}) {
   MainApi.register(name, email, password)
     .then((res) => {
       if (res) {
-        handleLogin(email, password);
+        handleLogin({ email, password });
         console.log("Функция регистрации");
       }
     })
@@ -64,7 +64,6 @@ function handleRegister(name, email, password) {
       setTimeout(()=>{setErrorText({text: ""})}, 4000);
     });
 }
-
 
 function handleLogin({ email, password }) {
   MainApi.authorize(email, password)

@@ -11,7 +11,6 @@ function Register({handleRegister, error}) {
     const [formSavedProcess, setFormSavedProcess] = useState(false);
     const {email, name, password} = formValidation.data;
 
-
     function handleSubmit(e) {
         setFormSavedProcess(true)
         e.preventDefault();

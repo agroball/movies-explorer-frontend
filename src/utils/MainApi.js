@@ -13,7 +13,6 @@ class MainApi {
   }
 
 
-
   register(name, email, password) {
     return fetch(`${this._url}/signup`, {
       method: 'POST',
@@ -21,7 +20,7 @@ class MainApi {
         "Content-Type": "application/json",
         'Access-Control-Allow-Credentials': true,
       },
-      body: JSON.stringify(name, email, password)
+      body: JSON.stringify({ name, email, password })
     })
       .then(response => {
         return this._getResJson(response);
@@ -31,13 +30,13 @@ class MainApi {
 
   authorize(email, password) {
     return fetch(`${this._url}/signin`, {
-      method: "POST",
+      method: 'POST',
       headers: {
         "Content-Type": "application/json",
         'Access-Control-Allow-Credentials': true,
       },
       credentials: 'include',
-      body: JSON.stringify({ password, email })
+      body: JSON.stringify({ email, password })
     })
       .then(response => {
         return this._getResJson(response);
@@ -155,4 +154,4 @@ class MainApi {
   };
 }
 
-export default new MainApi({url: `http://localhost:3000`});
+export default new MainApi({url: `https://api.agroball.diplom.nomoredomains.monster`});

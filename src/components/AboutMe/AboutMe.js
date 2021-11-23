@@ -10,8 +10,8 @@ function AboutMe() {
           <p className="about-me__subtitle">Фронтенд-разработчик, 29 лет</p>
           <p className="about-me__text">Я родился и живу в Москве, закончил факультет ПГС в МГСУ. У меня есть жена. В свободное время занимаюсь спортом. Есть кмс по жиму лежа.</p>
           <div className="about-me__links">
-            <a className="about-me__link" target="_blank" href="https://www.codewars.com/users/agroball">Codewars</a>
-            <a className="about-me__link" target="_blank" href="https://github.com/agroball">Github</a>
+            <a className="about-me__link" target="_blank" href="https://www.codewars.com/users/agroball" rel="noreferrer">Codewars</a>
+            <a className="about-me__link" target="_blank" href="https://github.com/agroball" rel="noreferrer">Github</a>
           </div>
           <img className="about-me__photo" src={image} alt="Моя фотография" />
         </div>
