@@ -1,0 +1,251 @@
+.profile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__greetings{
+    margin: 5.78% auto 9.61%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.profile__info{
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5.469%;
+}
+
+.profile__info_hide{
+    display: none;
+}
+
+.profile__line{
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.profile__info p:first-child, .profile__form fieldset:first-child{
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 16px;
+    margin-bottom: 17px;
+}
+
+.profile__line_userinfo{
+    font-weight: 400;
+}
+
+.profile__btn{
+    margin: 53.66% 0 3.9%;
+    text-align: center;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+    transition: filter .4s;
+}
+
+.profile__btn:hover{
+    filter: opacity(70%);
+}
+
+.profile__btn_quit{
+    margin: 0;
+    font-weight: 500;
+    color: #FF3055;
+}
+
+.profile__btn-cancel{
+    font-weight: 500;
+    color: #FF3055;
+    position: absolute;
+    bottom: 100px;
+    text-align: center;
+    background-color: #FFFFFF;
+    margin: 0 38%;
+    width: 24%;
+    transition: opacity 0.4;
+}
+
+.profile__btn-cancel:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.profile__form{
+    width: 32%;
+    display: none;
+    flex-direction: column;
+    margin-bottom: 5.469%;
+}
+.profile__form_opened{
+    display: flex;
+    transition: 1s;
+}
+
+.profile__form-fieldset{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__line{
+    border: none;
+    padding: 0;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.profile__form-item{
+    border: none;
+    padding: 0;
+    font-weight: 400;
+    width: 70%;
+    text-align: end;
+    height: 22px;
+}
+
+.profile__form-item:focus{
+    text-align: center;
+}
+
+.profile__form-item::placeholder{
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: #000000;
+    text-align: end;
+}
+
+.profile__form-item_error{
+    color: #FF3055;
+}
+
+.profile__edit-error{
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: #FF004C;
+    height: 14px;
+    margin: 46.1% 0 4.88%;
+    text-align: center;
+}
+
+.profile__save-btn{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    background: #3456F3;
+    border-radius: 3px;
+    height: 45px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+@media screen and (max-width: 1110px) {
+
+    .profile__greetings{
+        margin: 18.26% auto 11.05%;
+    }
+
+    .profile__info{
+        width: 42.385%;
+        margin-bottom: 20%;
+    }
+
+    .profile__form{
+        width: 42.385%;
+        margin-bottom: 20%;
+    }
+
+    .profile__info p:first-child, .profile__form fieldset:first-child{
+        padding-bottom: 6px;
+    }
+
+    .profile__btn{
+        margin: 52.44% 0 3.9%;
+    }
+
+    .profile__btn_quit{
+        margin: 0;
+    }
+    .profile__edit-error{
+        margin: 68.538% 0 4.88%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .profile__greetings{
+        margin: 30.73% auto 12.5%;
+    }
+    
+    .profile__info{
+        width: 53.385%;
+        margin-bottom: 35%;
+    }
+
+    .profile__form{
+        width: 53.385%;
+        margin-bottom: 35%;
+    }
+
+    .profile__btn{
+        margin: 51.22% 0 3.9%;
+    }
+
+    .profile__btn_quit{
+        margin: 0;
+    }
+    .profile__edit-error{
+        margin: 114.438% 0 4.88%;
+    }
+
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .profile__greetings{
+        margin: 21.88% auto 25%;
+    }
+
+    .profile__info{
+        width: 81.5%;
+        margin-bottom: 12.5%;
+    }
+
+    .profile__form{
+        width: 81.5%;
+        margin-bottom: 12.5%;
+    }
+
+    .profile__btn{
+        margin: 145.77% 0 6.15%;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .profile__save-btn{
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .profile__btn_quit{
+        margin: 0;
+    }
+
+    .profile__edit-error{
+        margin: 114.438% 0 4.88%;
+    }
+
+}

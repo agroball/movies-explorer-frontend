@@ -1,0 +1,41 @@
+.header{
+    padding: 0 5.469%;
+    margin: 0;
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.header button:hover{
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.header_unauth{
+    background-color: #5C5C5C;
+}
+
+@media screen and (max-width: 1110px) {
+
+    .header{
+        padding: 0 4.685%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+
+    .header{
+        padding: 0 3.9%;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    .header{
+        padding: 0 4.375%;
+    }
+}

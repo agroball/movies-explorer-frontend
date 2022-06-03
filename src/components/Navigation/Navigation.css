@@ -1,0 +1,247 @@
+.navigation{
+    display: block;
+    width: 100%;
+    margin-left: 3.86%;
+}
+
+.nav__popup{
+    display: none;
+}
+
+.nav__menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    width: 100%;
+}
+
+.nav__menu-info{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav__menu_main{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.nav__link{
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-align: right;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav__link_white{
+    color: #FFF;
+}
+
+.nav__link_active{
+    font-weight: 500;
+}
+
+.nav__link_account{
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.nav__link_signin{
+    padding: 8px 20px;
+    background-color: #2BE080;
+    border-radius: 3px;
+}
+
+.nav__account-icon{
+    float: right;
+    margin-left: 17px;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    padding: 8px 7.25px;
+}
+
+.nav__menu-btn{
+    display: none;
+}
+
+
+@media screen and (max-width: 1110px) {
+
+.navigation{
+    display: none;
+}
+
+.nav__menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30.58% auto 17.69%;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    height: 100%;
+}
+
+.nav__menu-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav__menu .nav__link{
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav__link_account{
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    margin-left: 0;
+}
+
+.nav__account-icon{
+    margin-left: 17px;
+}
+
+.nav__menu .nav__link_active{
+    border-bottom: 2px solid #000000;
+}
+
+.nav__menu-btn{
+    display: block;
+}
+
+.nav__popup{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.nav__popup_opened{
+    display: block;
+    transition: 1s;
+}
+
+.nav__popup-content{
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    margin-left: 32.3%;
+    height: 100vh;
+    width: 67.7%;
+    background: #FFFFFF;
+    z-index: 10;
+}
+
+.nav__popup-btn-close{
+    position: absolute;
+    top: 22.44px;
+    right: 22.44px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.nav__popup-btn-close-image{
+    width: 27px;
+    height: 27px;
+}
+
+}
+
+@media screen and (max-width: 700px) {
+
+.nav__menu{
+    margin: 38.2% auto 16.32%;
+}
+
+.nav__menu-info{
+    gap: 18px;
+}
+
+.nav__menu .nav__link{
+    padding-bottom: 5px;
+}
+
+.nav__link_account{
+    margin-top: 110.2%;
+}
+
+.nav__menu_main{
+    gap: 22px;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.nav__link_signin{
+    padding: 6px 16px;
+}
+
+.nav__popup-content{
+    margin-left: 16.3%;
+    width: 83.7%;
+}
+.nav__popup-btn-close{
+    top: 17.44px;
+    right: 17.44px;
+}
+
+}
+
+@media screen and (max-width: 440px) {
+
+
+.nav__menu{
+    margin: 45% auto 15%;
+}
+
+.nav__menu-info{
+    gap: 15px;
+}
+
+.nav__menu .nav__link{
+    padding-bottom: 7px;
+}
+
+.nav__menu_main{
+    gap: 14px;
+    font-size: 10px;
+    line-height: 16px;
+}
+
+.nav__link_signin{
+    padding: 5px 12px;
+}
+
+.nav__popup-content{
+    margin-left: 0;
+    width: 100%;
+}
+.nav__popup-btn-close{
+    top: 13.44px;
+    right: 13.44px;
+}
+
+}
